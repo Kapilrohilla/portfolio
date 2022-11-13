@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nunito Sans', sans-serif;
+}
+.logo{
+    font-family: 'Raleway', sans-serif;
+    padding-left: 20px;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.navBar{
+    padding-top: 20px;
+    padding-bottom: 60px;
+    border-top: 5px solid green;
+}
+.logo{
+    font-size: 40px;
+    float: left;
+}
+input#toggle{
+    display: none;
+}
+label{
+    display: none;
+    float:right;
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+}
+.menuBar svg,.closeBar svg{
+    width: 100%;
+    height: 100%;
+}
+.closeBar{
+    display: none;
+    z-index: 10;   
+}
+.navMobile{
+    /* display: none; */
+    position: absolute;
+    top: -100vh;
+    transform: translateY(0vh);
+    transition: transform 0.5s linear;
+    background-color: #fff;
+}
+.navMobile ul{
+    display: flex;
+    flex-direction: column;
+}
+.navMobile ul{
+    list-style: none;
+    width: 100vw;
+    border-top: 3px solid green;
+    border-bottom: 3px solid black;
+    padding: 2vh 5vw;
+    height: 100%;
+}
+.navMobile ul li{
+    border: 3px solid transparent;
+    padding-left: 5px;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.navMobile ul li:nth-last-of-type(){
+    margin-bottom: 20px;
+}
+.navMobile ul li:hover{
+    border-left: 3px solid green;
+}
+.navMobile ul li a{
+    border: 2px solid transparent;
+    color: black;
+    text-decoration: none;
+}
+.navDesktop,.navMobile{
+    float: right;
+}
+.navDesktop ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+.navDesktop ul li a{
+    font-size: 20px;
+    line-height: 40px;
+    color: black;
+    padding: 1px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+.navDesktop ul li a:hover{
+    color: #5b6eff;
+}
+.navDesktop ul li a:active{
+    border: 2px dashed black;
+}
+.navMobile ul li a:hover{
+    color: green;
+}
+.navMobile ul li a:active{
+    border: 2px dashed black;
+}
+#toggle:checked ~ label .menuBar{
+    display: none;
+}
+#toggle:checked ~ label .closeBar{
+    display: block;
+}
+#toggle:checked ~ .navMobile{
+    display: block;
+    top: calc(0vh + 80px);
+}
+@media screen and (max-width: 800px) {
+    .container{
+        width:100%;
+    }
+    .navDesktop{
+        display: none;
+    }
+    label{
+        display: block;
+    }
+}
+/* Navigation End */
+/* menu */
+#menu{
+    clear: both;
+}
+.intro{
+    padding-inline: 20px;
+    margin-block: 150px;
+}
+.intro h1, .intro p{
+    font-size: 30px;
+}
+.intro p{
+    margin-top: 100px;
+
+}
+.name , .intro p span{
+    color:#5b6eff;
+}
+.intro button{
+    margin-top: 40px;
+    height: 50px;
+    width: 200px;
+    background-color: transparent;
+    border: 2px solid darkgreen;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: Raleway;
+    color: #5b6eff;
+    cursor: pointer;
+}
+.intro button:hover{
+    background-color: #5b6eff;
+    color: #fff;
+    box-shadow: 0px 0px 5px 5px silver;
+}
+.intro button:last-of-type{
+    margin-left: 50px;
+}
+@media screen and (max-width: 800px){
+    .intro{
+        margin-block: 50px;
+    }
+    .intro h1, .intro p{
+        font-size: 20px;
+    }
+    .intro p{
+        margin-top: 50px;
+    }
+    .intro button{
+        margin-top: 30px
+    }
+}
+@media screen and (max-width: 500px){
+    .intro{
+        margin-block: 30px;
+    }
+    .intro p{
+        margin-top: 30px;
+    }
+    .intro button{
+        margin-top: 20px;
+        height: 40px;
+        width: 150px;
+        font-size: 15px;
+    }
+    .intro button:last-of-type{
+        margin-left: 0px;
+        display: block;
+    }
+}
+/* Skills */
+#skill{
+    padding-inline: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px;
+}
+.heading{
+    grid-column: 1/3;
+}
+.heading h2{
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+}
+#skill .a-skill{
+    display: flex;
+    justify-content: space-between;
+}
+#skill .a-skill h3{
+    font-family: 'Raleway', sans-serif;
+}
+#skill .a-skill meter{
+    width: 70%;
+}
+@media screen and (max-width: 800px){
+    #skill{
+        display: block;
+        line-height: 80px;
+    }
+
+}
+/* Project */
+#project{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 20px;
+    margin-block: 150px;
+    gap: 50px;
+}
+.card{
+    height: 550px;
+}
+.card:hover{
+    border-bottom: 3px solid greenyellow;
+}
+.card .image{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+.card .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transform: scale(1);
+    transition: transform .1s linear;
+}
+.card .image img:hover{
+    transform: scale(1.3);
+
+}
+.card-detail .left{
+    margin-top: 20px;
+    font-size: 20px;
+    float: left;
+    width: max-content;
+}
+.card-detail .right{
+    float: right;
+    width: max-content;
+    font-size: 20px;
+    margin-top: 20px;
+}
+@media screen and (max-width: 800px){
+    #project{
+        display: block;
+        margin-block: 50px;
+    }
+    .card{
+        height: 320px;
+        margin-bottom: 50px;
+    }
+    .pro{
+        margin-bottom: 50px;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 5px 3px silver;;
+    }
+    .card .image{
+        width: 100%;
+        height: 270px;
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 500px){
+
+}
