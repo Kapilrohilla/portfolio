@@ -73,12 +73,22 @@ const config = {
           "0%": {"margin-top": "0px"},
           "50%": {"margin-top": "-24px"},
           "100%": {"margin-top": "-48px"},
-        }
+        },
+        slide_open_smooth: {
+          "0%": { maxHeight: "0"},
+          "100%": { maxHeight: "100vh"},
+        },
+        slide_close_smooth: {
+          "0%": { maxHeight: "100vh" },
+          "100%": { maxHeight: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "text-auto-scroll": "scroll 5s normal infinite"
+        "text-auto-scroll": "scroll 5s normal infinite",
+        'slide-open-smooth': 'slide_open_smooth 1s ease-out forwards',
+        'slide-close-smooth': 'slide_close_smooth 0.4s ease-out forwards',
       },
     },
   },

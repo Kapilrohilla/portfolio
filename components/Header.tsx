@@ -15,43 +15,50 @@ const navItems = [
   {
     id: "1",
     icon: <UserPen className="h-4 w-4 " />,
+    active_icon: <UserPen className="h-4 w-4 text-primary_green" />,
     text: "About",
   },
   {
     id: "2",
     icon: <Dumbbell className="h-4 w-4 " />,
+    active_icon: <Dumbbell className="h-4 w-4 text-primary_green" />,
     text: "SKILLS",
   },
   {
     id: "3",
     icon: <Mail className="h-4 w-4 " />,
+    active_icon: <Mail className="h-4 w-4 text-primary_green" />,
     text: "SERVICES",
   },
   {
     id: "4",
     icon: <Mail className="h-4 w-4 " />,
+    active_icon: <Mail className="h-4 w-4 text-primary_green" />,
     text: "PROJECTS",
   },
   {
     id: "5",
     icon: <Mail className="h-4 w-4 " />,
+    active_icon: <Mail className="h-4 w-4 text-primary_green" />,
     text: "RESUME",
   },
   {
     id: "6",
     icon: <Mail className="h-4 w-4" />,
+    active_icon: <Mail className="h-4 w-4 text-primary_green" />,
     text: "ARTICLES",
   },
   {
     id: "7",
     icon: <Mail className="h-4 w-4 " />,
+    active_icon: <Mail className="h-4 w-4 text-primary_green" />,
     text: "CONTACT",
   },
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-
+  const [active_nav, set_active_nav] = useState(navItems[0].text);
   return (
     <header>
       <div className="h-16 py-2.5 px-4">
@@ -84,28 +91,31 @@ const Header = () => {
         </div>
       </div>
       {/* list  */}
-      {open && (
-        <div className="bg-white h-0  w-full px-3">
-          <div className="flex flex-col gap-0 h-0">
-            {navItems.map((item) => (
-              <p
-                className="flex flex-row items-center py-1 gap-2 border-t border-t-gray-100 text-xs font-medium"
-                key={item.id}
+      <div
+        className={`absolute bg-white overflow-hidden w-full px-3 transition-all ${
+          open ? "animate-slide-open-smooth" : "animate-slide-close-smooth"
+        }`}
+      >
+        <div className="flex flex-col gap-0 h-full">
+          {navItems.map((item) => (
+            <button
+              onClick={() => set_active_nav(item.text)}
+              className="flex flex-row items-center py-1 gap-2 border-t border-t-gray-100 text-xs font-medium"
+              key={item.id}
+            >
+              <div
+                className="h-10 w-10 rounded-full flex justify-center items-center"
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.02)",
+                }}
               >
-                <div
-                  className="h-10 w-10 rounded-full flex justify-center items-center"
-                  style={{
-                    backgroundColor: "rgba(0,0,0,0.02)",
-                  }}
-                >
-                  {item.icon}
-                </div>
-                {item.text.toUpperCase()}
-              </p>
-            ))}
-          </div>
+                {active_nav === item.text ? item.active_icon : item.icon}
+              </div>
+              {item.text.toUpperCase()}
+            </button>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 };
