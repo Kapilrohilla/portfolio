@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -53,7 +53,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         primary_green: "var(--primary-green)",
-        primary_body: "var(--primary-body)"
+        primary_body: "var(--primary-body)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -69,14 +69,14 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "scroll": {
-          "0%": {"margin-top": "0px"},
-          "50%": {"margin-top": "-24px"},
-          "100%": {"margin-top": "-48px"},
+        scroll: {
+          "0%": { "margin-top": "0px" },
+          "50%": { "margin-top": "-24px" },
+          "100%": { "margin-top": "-48px" },
         },
         slide_open_smooth: {
-          "0%": { maxHeight: "0"},
-          "100%": { maxHeight: "100vh"},
+          "0%": { maxHeight: "0" },
+          "100%": { maxHeight: "100vh" },
         },
         slide_close_smooth: {
           "0%": { maxHeight: "100vh" },
@@ -86,13 +86,17 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "text-auto-scroll": "scroll 5s normal infinite",
-        'slide-open-smooth': 'slide_open_smooth 1s ease-out forwards',
-        'slide-close-smooth': 'slide_close_smooth 0.4s ease-out forwards',
+        "text-auto-scroll": "scroll 3s normal infinite",
+        "slide-open-smooth": "slide_open_smooth 1s ease-out forwards",
+        "slide-close-smooth": "slide_close_smooth 0.4s ease-out forwards",
+      },
+      backgroundImage: {
+        radiant_seperator:
+          "radial-gradient(ellipse at center, #ddd 0%, rgba(255, 255, 255, 0) 70%)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-full">
-      <body className={inter.className + " min-h-full"}>{children}</body>
+      <body className={inter.className + " min-h-screen"}>{children}</body>
     </html>
   );
 }

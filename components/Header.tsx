@@ -10,6 +10,7 @@ import {
   X,
 } from "lucide-react";
 import React, { useState } from "react";
+import Slider from "./Slider";
 
 const navItems = [
   {
@@ -59,22 +60,15 @@ const navItems = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [active_nav, set_active_nav] = useState(navItems[0].text);
+  const skills = ["Data Engineer", "Data Architect", "Software Enignner"];
   return (
-    <header>
+    <header className="fixed top-0 w-full bg-white z-50">
       <div className="h-16 py-2.5 px-4">
         {/* left */}
         <div className="flex flex-row  justify-between text-sm items-center">
           <div>
             <h1 className="font-medium mb-1">Andrew Ryan</h1>
-            <div className="overflow-hidden h-6 leading-6">
-              <div className="overflow-ellipsis flex flex-col animate-text-auto-scroll">
-                <p className="font-normal text-primary_green">Data Engineer</p>
-                <p className="font-normal text-primary_green">Data Architect</p>
-                <p className="font-normal text-primary_green">
-                  Software Enignner
-                </p>
-              </div>
-            </div>
+            <Slider texts={skills} />
           </div>
           {/* right */}
           <div className="flex flex-row gap-3">
