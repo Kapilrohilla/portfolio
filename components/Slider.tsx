@@ -1,4 +1,8 @@
-export default function Slider({ texts, text_center = false }: SliderP) {
+export default function Slider({
+  texts,
+  text_center = false,
+  textClass,
+}: SliderP) {
   return (
     <div className="overflow-hidden h-6 leading-6">
       <div
@@ -8,7 +12,9 @@ export default function Slider({ texts, text_center = false }: SliderP) {
       >
         {texts.map((text, index) => (
           <p
-            className="font-light text-primary_green tracking-wide"
+            className={
+              "font-extralight text-primary_green tracking-wide " + textClass
+            }
             key={index}
           >
             {text}
@@ -22,4 +28,5 @@ export default function Slider({ texts, text_center = false }: SliderP) {
 type SliderP = {
   texts: String[];
   text_center?: boolean;
+  textClass?: string;
 };
