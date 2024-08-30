@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Overlay from "@/components/Overlay";
 const inter = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-full">
-      <body className={inter.className + " min-h-screen"}>{children}</body>
+      <body className="min-h-screen">
+        <Overlay />
+        <div className={`min-h-screen ${inter.className}`}>{children}</div>
+      </body>
     </html>
   );
 }

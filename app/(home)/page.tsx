@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
+import Overlay from "@/components/Overlay";
 import Pills from "@/components/Pills";
 import Slider from "@/components/Slider";
-import { TimelineLayout } from "@/components/timeline/timeline-layout";
+// import { TimelineLayout } from "@/components/timeline/timeline-layout";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@radix-ui/react-separator";
@@ -32,7 +33,7 @@ const roboto = Roboto({
 });
 const poppins = Poppins({
   weight: ["100", "200", "300", "400"],
-  subsets: ["latin"],
+  subsets: ["latin-ext"],
 });
 const skills = ["Data Engineer", "Data Architect", "Software Enignner"];
 const textSkill = ["Data Architect", "Software Enignner"];
@@ -131,9 +132,9 @@ const engineering_practices = [
 const service_data = [
   {
     img: "/service_icon.png",
-    small_title: "5 Developers",
-    title: "ETL Development",
-    body: "ETL pipelines according to the DWH design and architecture (Azure Synapse, Databricks, Azure DevOps).",
+    small_title: "2 Developers",
+    title: "ETL Design",
+    body: "Data models in SAP PowerDesigner ETL process design & implementation: Apache Airflow / AWS / Python.",
     link_text: "get started",
   },
   {
@@ -221,11 +222,17 @@ export default function Home() {
               className="min-h-[560px] max-h-[750px] min-w-[] max-w-[] px-7 pt-11 flex flex-col bg-white"
               id="about"
             >
-              <img
-                src="profile.jpg"
-                alt="something"
-                className="bg-cover object-cover aspect-[4/3] rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px] max-h-[279px] min-h-[279px]"
-              />
+              <div className="h-fit w-fit glitch max-h-[279px] min-h-full aspect-[4/3] rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
+                <img
+                  src="profile.jpg"
+                  alt="something"
+                  className="object-cover w-full h-full "
+                />
+                <div className="glitch__layers">
+                  <div className="glitch__layer"></div>
+                  {/* <div className="glitch__layer"></div> */}
+                </div>
+              </div>
               <div className="flex flex-col items-center mt-7 gap-4">
                 <Slider texts={skills} text_center={true} />
                 <h2 className="text-3xl font-medium">Andrew Ryan</h2>
@@ -547,7 +554,9 @@ const ServiceBox = ({
           className="aspect-video object-contain h-full"
         />
         <div className="flex flex-col justify-center">
-          <p className={`text-sm font-light ${poppins.className}`}>
+          <p
+            className={`text-sm font-extralight  text-[#9c9c9c] ${poppins.className}`}
+          >
             {small_title}
           </p>
           <h4 className={`font-medium text-primary ${poppins.className}`}>
@@ -555,8 +564,11 @@ const ServiceBox = ({
           </h4>
         </div>
       </div>
-      <p className={`text-sm ${poppins.className}`}>{body}</p>
-      <Link className="underline uppercase text-sm tracking-widest" href={"/"}>
+      <p className={`text-xs text-[#9c9c9c] ${poppins.className} `}>{body}</p>
+      <Link
+        className="underline uppercase text-xs  text-thin tracking-widest"
+        href={"/"}
+      >
         {linkText}
       </Link>
     </div>
@@ -615,15 +627,7 @@ const PricingBox = ({
       >
         ORDER NOW
       </Button>
-      <div className="flex flex-col gap-3">
-        {/* {engineering_practices.map((obj, index) => (
-          <CheckListItem
-            check={obj.check}
-            text={obj.text}
-            key={index}
-            gap="gap-2"
-          />
-        ))} */}
+      <div className="flex flex-col gap-3 leading-7">
         {available_content.map((str) => {
           return (
             <CheckListItem check={true} text={str} key={str} gap="gap-2" />
@@ -636,7 +640,7 @@ const PricingBox = ({
               text={str}
               key={str}
               gap="gap-2"
-              className="text-sm leading-3 tracking-wide"
+              className="text-sm leading-7 tracking-wide"
             />
           );
         })}
