@@ -18,11 +18,11 @@ const SkillBox = ({
   innerClassName,
 }: SkillP) => {
   return (
-    <div className={`flex flex-col ${className}`}>
+    <div className={`flex flex-col md:gap-[10px] ${className}`}>
       <Pills text={pillText.toUpperCase()}>{pillIcon}</Pills>
       {title && (
         <h2
-          className={`text-[22px] font-medium ${plus_jakarta_sans.className} leading-8`}
+          className={`text-[22px] md:text-[32px] font-medium ${plus_jakarta_sans.className} leading-8`}
         >
           {title}
         </h2>

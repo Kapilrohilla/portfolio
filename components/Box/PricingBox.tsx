@@ -7,16 +7,18 @@ type PricingBoxP = {
   amount: number;
   available_content: string[];
   unavailable_content: string[];
+  className?: string;
 };
 const PricingBox = ({
   duration,
   amount,
   available_content,
   unavailable_content,
+  className,
 }: PricingBoxP) => {
   return (
     <div
-      className={`border border-gray-200 px-5 py-[40px] relative flex flex-col gap-9 ${poppins.className} rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))]`}
+      className={`border border-gray-200 px-5 py-[40px] relative flex flex-col gap-9 ${poppins.className} rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
     >
       <div className="flex flex-row items-center justify-between h-[45px]">
         <span className="text-[45px] text-primary_green font-medium">

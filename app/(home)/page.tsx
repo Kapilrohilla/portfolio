@@ -47,55 +47,61 @@ export default function Home() {
           >
             <source src="/bg-light.mp4" type="video/mp4" />
           </video>
-          <div className="absolute top-0 flex gap-5 flex-col left-1/2 -translate-x-1/2 w-full">
+          <div
+            className="
+          absolute top-0 flex gap-5 flex-col left-1/2 -translate-x-1/2 w-full
+          "
+          >
             <div className="flex flex-gap flex-col md:flex-row md:max-w-[1320px] md:m-auto gap-5">
               {/* about */}
-              <div
-                className="min-h-[560px] max-h-[750px] max-w-[] px-7 pt-11 flex flex-col bg-white md:rounded-l-3xl md:rounded-br-3xl md:h-[500px] md:w-[300px] lg:w-[320px]"
-                id="about"
-              >
-                <div className="h-fit glitch aspect-[4/3] md:aspect-auto rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
-                  <img
-                    src="profile.jpg"
-                    alt="something"
-                    className="object-cover w-full h-full "
-                  />
-                  <div className="glitch__layers">
-                    <div className="glitch__layer"></div>
-                    {/* <div className="glitch__layer"></div> */}
+              <div className="static top-10">
+                <div
+                  className="min-h-[560px] max-h-[750px] max-w-[] px-7 pt-11 flex flex-col bg-white md:rounded-l-3xl md:rounded-br-3xl md:h-[500px] md:w-[300px] lg:w-[320px]"
+                  id="about"
+                >
+                  <div className="h-fit glitch aspect-[4/3] md:aspect-auto rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
+                    <img
+                      src="profile.jpg"
+                      alt="something"
+                      className="object-cover w-full h-full "
+                    />
+                    <div className="glitch__layers">
+                      <div className="glitch__layer"></div>
+                      {/* <div className="glitch__layer"></div> */}
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col items-center mt-7 gap-4">
-                  <Slider texts={data.skills} text_center={true} />
-                  <h2 className="text-3xl font-medium">Andrew Ryan</h2>
-                  <div className="flex flex-row gap-4 mt-2">
-                    {data.icons.map((obj) => (
-                      <IconBtn key={obj.id}>{obj.icon}</IconBtn>
-                    ))}
+                  <div className="flex flex-col items-center mt-7 gap-4">
+                    <Slider texts={data.skills} text_center={true} />
+                    <h2 className="text-3xl font-medium">Andrew Ryan</h2>
+                    <div className="flex flex-row gap-4 mt-2">
+                      {data.icons.map((obj) => (
+                        <IconBtn key={obj.id}>{obj.icon}</IconBtn>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="self-baseline w-full mt-6">
-                  <Separator className="h-[1px]  bg-radiant_seperator" />
-                  <div className="flex h-[70px] w-full">
-                    <Button
-                      type={"button"}
-                      variant={"link"}
-                      className="h-full justify-center items-center w-full tracking-wide font-medium text-[14px] hover:no-underline active:bg-slate-300"
-                    >
-                      Download CV
-                    </Button>
-                    <div className="block h-full w-[1px] bg-[#ddd]"></div>
-                    <Button
-                      className="h-full justify-center items-center w-full tracking-wide font-medium text-[14px] hover:no-underline"
-                      type={"button"}
-                      variant={"link"}
-                    >
-                      Contact Me
-                    </Button>
+                  <div className="self-baseline w-full mt-6">
+                    <Separator className="h-[1px]  bg-radiant_seperator" />
+                    <div className="flex h-[70px] w-full">
+                      <Button
+                        type={"button"}
+                        variant={"link"}
+                        className="h-full justify-center items-center w-full tracking-wide font-medium text-[14px] hover:no-underline active:bg-slate-300"
+                      >
+                        Download CV
+                      </Button>
+                      <div className="block h-full w-[1px] bg-[#ddd]"></div>
+                      <Button
+                        className="h-full justify-center items-center w-full tracking-wide font-medium text-[14px] hover:no-underline"
+                        type={"button"}
+                        variant={"link"}
+                      >
+                        Contact Me
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="md:gap-5 md:flex md:flex-col">
+              <div className="gap-5 flex flex-col">
                 {/* counter section */}
                 <Card className="md:h-[620px] md:py-[80px] gap-4 md:rounded-r-3xl">
                   <div className="flex flex-row tracking-wider text-[18px] font-extralight sm:mb-2 gap-1">
@@ -223,11 +229,13 @@ export default function Home() {
                   <SkillBox
                     title="Amazing Pricing For Your Projects"
                     pillText="Pricing"
+                    innerClassName="md:flex-row md:justify-between "
                     pillIcon={<HandCoins className="h-4 w-4" />}
                   >
                     {data.pricings.map((pricing) => {
                       return (
                         <PricingBox
+                          className="md:py-[70px] md:w-[48%]"
                           amount={pricing.amount}
                           duration={pricing.duration}
                           key={pricing.amount}
@@ -372,7 +380,7 @@ export default function Home() {
                     <Form className="mb-20" />
                   </SkillBox>
                 </Card>
-                <Card className="py-2">
+                <Card className="py-2 mt-5">
                   <p className={`text-sm text-[#7a7a7a] ${roboto.className}`}>
                     © 2024 theme is proudly created by{" "}
                     <span className="text-primary_green">@kapilrohilla</span>{" "}
