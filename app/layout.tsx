@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-full">
       <body className="min-h-screen">
-        <Overlay />
+        {/* <Overlay /> */}
         <div className={`min-h-screen ${inter.className}`}>{children}</div>
       </body>
     </html>

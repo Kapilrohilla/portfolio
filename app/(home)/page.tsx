@@ -1,3 +1,4 @@
+import Form from "@/components/form/MessageForm";
 import Header from "@/components/Header";
 import Overlay from "@/components/Overlay";
 import Pills from "@/components/Pills";
@@ -16,7 +17,9 @@ import {
   Languages,
   Linkedin,
   Logs,
+  Send,
   Settings,
+  Smartphone,
   Twitter,
 } from "lucide-react";
 import { Plus_Jakarta_Sans, Roboto, Poppins } from "next/font/google";
@@ -400,27 +403,117 @@ export default function Home() {
             </div>
             <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
               <SkillBox
+                pillText="Projects"
+                pillIcon={<Book className="h-4 w-4" />}
+              ></SkillBox>
+            </div>
+            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+              <SkillBox
+                pillText="Resume"
+                pillIcon={<Book className="h-4 w-4" />}
+              ></SkillBox>
+            </div>
+            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+              <SkillBox
+                pillText="Courses"
+                pillIcon={<Book className="h-4 w-4" />}
+              ></SkillBox>
+            </div>
+            <Card>
+              <SkillBox
                 pillText="Education"
                 pillIcon={<Book className="h-4 w-4" />}
+              ></SkillBox>
+            </Card>
+            <Card className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+              <SkillBox
+                pillText="Contact"
+                pillIcon={<Send className="h-4 w-4" />}
               >
-                {/* {
-                  // timelineData.map((obj)=>{
-                  //   return (
-                  <TimelineLayout key={"som"} items={timelineData} />
-                  // )
-                  // })
-                } */}
+                <h3
+                  className={`font-medium text-2xl ${plus_jakarta_sans.className}`}
+                >
+                  Lets get in touch!
+                </h3>
+                {[
+                  {
+                    title: "Phone",
+                    details: "+91 828 784 2425",
+                    link: "/icons/phone.svg",
+                  },
+                  {
+                    title: "Email",
+                    details: "kapilrohilla2002@gmail.com",
+                    link: "/icons/phone.svg",
+                  },
+                  {
+                    title: "Github",
+                    details: "https://github.com/kapilrohilla",
+                    link: "/icons/phone.svg",
+                  },
+                ].map((val, idx) => (
+                  <div
+                    className="border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] p-5"
+                    key={idx}
+                  >
+                    {/* first row */}
+                    <div className="flex flex-row gap-4 items-center mb-2">
+                      <Image
+                        src={"/icons/phone.svg"}
+                        alt={"phone icon"}
+                        width={34}
+                        height={34}
+                      />
+                      <span className="text-primary_body text-sm">
+                        {val.title}
+                      </span>
+                    </div>
+                    <p className="text-primary_body tracking-wider text-sm">
+                      {val.details}
+                    </p>
+                  </div>
+                ))}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3115.4332587423414!2d77.02054324677752!3d28.482494009192973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19002e2eb101%3A0xf4258d3b7fe80aff!2sS.S.%20Tuition%20Classes!5e0!3m2!1sen!2sin!4v1725161632653!5m2!1sen!2sin"
+                  className="aspect-square w-full mt-10 mb-5"
+                  loading="lazy"
+                ></iframe>
+                <h3
+                  className={`text-[23px] font-medium ${poppins.className} mt-10 mb-5`}
+                >
+                  Lets make your project brilliant
+                </h3>
+                <Form />
               </SkillBox>
-            </div>
+            </Card>
+            <Card className="py-2">
+              <p className={`text-sm text-[#7a7a7a] ${roboto.className}`}>
+                © 2024 theme is proudly created by{" "}
+                <span className="text-primary_green">@kapilrohilla</span>{" "}
+              </p>
+            </Card>
           </div>
         </div>
       </main>
     </>
   );
 }
-
+interface CardP {
+  children: React.ReactNode;
+  className?: string;
+}
+const Card = ({ children, className }: CardP) => {
+  return (
+    <div
+      className={`flex flex-col h-full w-full py-10 bg-white px-7 leading-5 ${className}`}
+    >
+      {children}
+    </div>
+  );
+};
 interface ChildP {
   children?: React.ReactNode;
+  className?: string;
 }
 const IconBtn = ({ children }: ChildP) => {
   return (
