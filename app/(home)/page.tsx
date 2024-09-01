@@ -24,6 +24,7 @@ import TechnologiesProgress from "@/components/TechProgress";
 import FlagListItem from "@/components/CheckList/FlagListItem";
 import ServiceBox from "@/components/Box/ServiceBox";
 import data from "@/lib/data";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function Home() {
   return (
@@ -88,7 +89,7 @@ export default function Home() {
               </div>
             </div>
             {/*  */}
-            <div className="flex flex-col  h-full w-full py-10 bg-white px-7 leading-5 ">
+            <Card>
               <div className="flex flex-row tracking-wider text-[18px] font-extralight mb-2 gap-1">
                 <p className="font-normal tracking-wider ">{"Hello, I'm "}</p>
                 <Slider
@@ -135,12 +136,9 @@ export default function Home() {
                   );
                 })}
               </div>
-            </div>
+            </Card>
             {/* skills */}
-            <div
-              className="flex flex-col h-full w-full pt-10 pb-20 bg-white px-7 leading-5 gap-16"
-              id="skills"
-            >
+            <Card id="skills" className="gap-16">
               <SkillBox
                 pillIcon={<Dumbbell className="h-4 w-4" />}
                 pillText="technincal skills"
@@ -182,9 +180,9 @@ export default function Home() {
                   />
                 ))}
               </SkillBox>
-            </div>
+            </Card>
             {/* services */}
-            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            <Card>
               <SkillBox
                 title="What Service i provide ?"
                 pillText="Services"
@@ -201,9 +199,9 @@ export default function Home() {
                   />
                 ))}
               </SkillBox>
-            </div>
+            </Card>
             {/* pricing */}
-            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            <Card>
               <SkillBox
                 title="Amazing Pricing For Your Projects"
                 pillText="Pricing"
@@ -221,32 +219,32 @@ export default function Home() {
                   );
                 })}
               </SkillBox>
-            </div>
-            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            </Card>
+            <Card>
               <SkillBox
                 pillText="Projects"
                 pillIcon={<Book className="h-4 w-4" />}
               ></SkillBox>
-            </div>
-            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            </Card>
+            <Card>
               <SkillBox
                 pillText="Resume"
                 pillIcon={<Book className="h-4 w-4" />}
               ></SkillBox>
-            </div>
-            <div className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            </Card>
+            <Card>
               <SkillBox
                 pillText="Courses"
                 pillIcon={<Book className="h-4 w-4" />}
               ></SkillBox>
-            </div>
+            </Card>
             <Card>
               <SkillBox
                 pillText="Education"
                 pillIcon={<Book className="h-4 w-4" />}
               ></SkillBox>
             </Card>
-            <Card className="flex flex-col h-full w-full py-10 bg-white px-7 leading-5">
+            <Card className="rounded-b-[30px]">
               <SkillBox
                 pillText="Contact"
                 pillIcon={<Send className="h-4 w-4" />}
@@ -304,7 +302,7 @@ export default function Home() {
                 >
                   Lets make your project brilliant
                 </h3>
-                <Form />
+                <Form className="mb-20" />
               </SkillBox>
             </Card>
             <Card className="py-2">
@@ -315,6 +313,7 @@ export default function Home() {
             </Card>
           </div>
         </div>
+        <Toaster />
       </main>
     </>
   );

@@ -20,13 +20,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { ArrowBigRightDash } from "lucide-react";
-
+import { toast } from "sonner";
+type MsgFormP = {
+  className?: string;
+};
 const formSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   message: z.string().min(10),
 });
-const MessageForm = () => {
+const MessageForm = ({ className }: MsgFormP) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,7 +39,7 @@ const MessageForm = () => {
     },
   });
   return (
-    <div className="flex flex-col gap-7">
+    <div className={`flex flex-col gap-7 ${className}`}>
       <Form {...form}>
         <FormField
           control={form.control}
@@ -88,6 +91,13 @@ const MessageForm = () => {
         />
         <Button
           className={`bg-[#eee] text-black text-sm ${poppins.className} h-[50px] uppercase w-fit min-w-52 gap-2 rounded-full active:bg-[#eee] active:text-primary_green focus:bg-[#eee]`}
+          onClick={() => {
+            const id = toast("Message Sent", {
+              description: `At, ${new Date().toDateString()}`,
+              duration: 2000,
+            });
+            console.log(id);
+          }}
         >
           Send Message
           <ArrowBigRightDash strokeWidth={1.5} />
