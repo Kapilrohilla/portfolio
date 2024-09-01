@@ -7,6 +7,7 @@ type ServiceBoxP = {
   title: string;
   body: string;
   linkText: string;
+  clasName?: string;
 };
 const ServiceBox = ({
   img,
@@ -14,10 +15,11 @@ const ServiceBox = ({
   title,
   body,
   linkText,
+  clasName,
 }: ServiceBoxP) => {
   return (
     <div
-      className={`border border-gray-200 h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6`}
+      className={`border border-gray-200 h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6 ${clasName}`}
     >
       <div className="flex flex-row gap-4 h-[50px] w-full ">
         <Image

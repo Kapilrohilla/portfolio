@@ -93,6 +93,13 @@ const service_data = [
     body: "ETL pipelines according to the DWH design and architecture (Azure Synapse, Databricks, Azure DevOps).",
     link_text: "get started",
   },
+  {
+    img: "/service_icon.png",
+    small_title: "5 Developers",
+    title: "ETL Development",
+    body: "ETL pipelines according to the DWH design and architecture (Azure Synapse, Databricks, Azure DevOps).",
+    link_text: "get started",
+  },
 ];
 const pricings = [
   {

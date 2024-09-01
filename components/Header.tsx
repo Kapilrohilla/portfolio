@@ -70,7 +70,7 @@ const Header = () => {
   const [active_nav, set_active_nav] = useState(navItems[0].text);
   const skills = ["Data Engineer", "Data Architect", "Software Enignner"];
   return (
-    <header className="fixed top-0 w-full bg-white z-40">
+    <header className="fixed top-0 w-full md:opacity-0 bg-white z-40">
       <div className="h-16 py-2.5 px-4">
         {/* left */}
         <div className="flex flex-row  justify-between text-sm items-center">

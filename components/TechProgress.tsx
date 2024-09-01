@@ -5,10 +5,13 @@ import { poppins } from "@/lib/fonts";
 type TechProgressP = {
   text: string;
   progress: number;
+  className?: string;
 };
-const TechnologiesProgress = ({ text, progress }: TechProgressP) => {
+const TechnologiesProgress = ({ text, progress, className }: TechProgressP) => {
   return (
-    <div className="px-5 pt-5 border border-gray-300 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] rounded-2xl">
+    <div
+      className={`px-5 pt-5 border border-gray-300 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] rounded-2xl ${className}`}
+    >
       <div
         className={`flex flex-row justify-between ${poppins.className} mb-5`}
       >

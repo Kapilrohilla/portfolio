@@ -6,10 +6,19 @@ interface SkillP extends ChildP {
   pillIcon: React.ReactNode;
   pillText: string;
   title?: string;
+  className?: string;
+  innerClassName?: string;
 }
-const SkillBox = ({ children, pillIcon, pillText, title }: SkillP) => {
+const SkillBox = ({
+  children,
+  pillIcon,
+  pillText,
+  title,
+  className,
+  innerClassName,
+}: SkillP) => {
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${className}`}>
       <Pills text={pillText.toUpperCase()}>{pillIcon}</Pills>
       {title && (
         <h2
@@ -19,7 +28,7 @@ const SkillBox = ({ children, pillIcon, pillText, title }: SkillP) => {
         </h2>
       )}
       <div
-        className={`${title ? "mt-[20px]" : "mt-[4px]"} flex flex-col gap-4`}
+        className={`${title ? "mt-[20px]" : "mt-[4px]"} flex flex-col gap-4 ${innerClassName}`}
       >
         {children}
       </div>
