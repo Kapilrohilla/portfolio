@@ -1,208 +1,29 @@
 import Form from "@/components/form/MessageForm";
 import Header from "@/components/Header";
-import Overlay from "@/components/Overlay";
-import Pills from "@/components/Pills";
+import Card from "@/components/Card";
 import Slider from "@/components/Slider";
-// import { TimelineLayout } from "@/components/timeline/timeline-layout";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Separator } from "@radix-ui/react-separator";
 import {
   Book,
-  Check,
   Dumbbell,
-  Github,
   HandCoins,
-  Instagram,
   Languages,
-  Linkedin,
   Logs,
   Send,
   Settings,
-  Smartphone,
-  Twitter,
 } from "lucide-react";
-import { Plus_Jakarta_Sans, Roboto, Poppins } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-
-const plus_jakarta_sans = Plus_Jakarta_Sans({
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-});
-const roboto = Roboto({
-  weight: ["100", "300", "400"],
-  subsets: ["latin"],
-});
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400"],
-  subsets: ["latin-ext"],
-});
-const skills = ["Data Engineer", "Data Architect", "Software Enignner"];
-const textSkill = ["Data Architect", "Software Enignner"];
-const testimonial_count = [
-  {
-    count: "96",
-    text: (
-      <p>
-        Completed
-        <br /> Projects
-      </p>
-    ),
-  },
-  {
-    count: "8",
-    text: (
-      <p>
-        Years <br /> of Experience
-      </p>
-    ),
-  },
-  {
-    count: "10+",
-    text: <p>Awards Winning</p>,
-  },
-];
-const technologies = [
-  {
-    text: "Python",
-    progress: 96,
-  },
-  {
-    text: "PostgressSQL",
-    progress: 85,
-  },
-  {
-    text: "DBeaver",
-    progress: 20,
-  },
-  {
-    text: "Cloud: AWS",
-    progress: 75,
-  },
-];
-const languages = [
-  {
-    flag: "/spain_flag.png",
-    language: "English",
-    progress: 90,
-  },
-  {
-    flag: "/spain_flag.png",
-    language: "Spanish",
-    progress: 60,
-  },
-  {
-    flag: "/spain_flag.png",
-    language: "Italian",
-    progress: 30,
-  },
-  {
-    flag: "/spain_flag.png",
-    language: "French",
-    progress: 70,
-  },
-];
-const icons = [
-  { id: "1", icon: <Linkedin className="h-4 w-4" /> },
-  { id: "2", icon: <Github className="h-4 w-4" /> },
-  { id: "3", icon: <Instagram className="h-4 w-4" /> },
-  { id: "4", icon: <Twitter className="h-4 w-4" /> },
-];
-
-const engineering_practices = [
-  {
-    check: true,
-    text: "Data Analytics Engineering",
-  },
-  {
-    check: true,
-    text: "Oracle SQL",
-  },
-  {
-    check: false,
-    text: "Data Integration",
-  },
-  {
-    check: false,
-    text: "Data Generation",
-  },
-  {
-    check: false,
-    text: "Data Analytics Engineering",
-  },
-];
-const service_data = [
-  {
-    img: "/service_icon.png",
-    small_title: "2 Developers",
-    title: "ETL Design",
-    body: "Data models in SAP PowerDesigner ETL process design & implementation: Apache Airflow / AWS / Python.",
-    link_text: "get started",
-  },
-  {
-    img: "/service_icon.png",
-    small_title: "5 Developers",
-    title: "ETL Development",
-    body: "ETL pipelines according to the DWH design and architecture (Azure Synapse, Databricks, Azure DevOps).",
-    link_text: "get started",
-  },
-  {
-    img: "/service_icon.png",
-    small_title: "5 Developers",
-    title: "ETL Development",
-    body: "ETL pipelines according to the DWH design and architecture (Azure Synapse, Databricks, Azure DevOps).",
-    link_text: "get started",
-  },
-];
-const pricings = [
-  {
-    amount: 29,
-    duration: "Hour",
-    available: [
-      "Create data models in SAP PowerDesigner",
-      "Preparation and participation in POCs and demos",
-    ],
-    unavailable: [
-      "Development and implementation of ETL pipelines",
-      "Extended Support 6 months",
-    ],
-  },
-  {
-    amount: 119,
-    duration: "Day",
-    available: [
-      "Create data models in SAP PowerDesigner",
-      "Preparation and participation in POCs and demos",
-      "Development and implementation of ETL pipelines",
-      "Extended Support 6 months",
-    ],
-    unavailable: [],
-  },
-];
-const timelineData = [
-  {
-    id: 1,
-    title: "First event",
-    date: "2022-01-01",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio euismod lacinia at quis risus sed vulputate odio ut. Quam viverra orci sagittis eu volutpat odio facilisis mauris.",
-  },
-  {
-    id: 2,
-    title: "Second event",
-    date: "2022-02-01",
-    description:
-      "Aut eius excepturi ex recusandae eius est minima molestiae. Nam dolores iusto ad fugit reprehenderit hic dolorem quisquam et quia omnis non suscipit nihil sit libero distinctio. Ad dolorem tempora sit nostrum voluptatem qui tempora unde? Sit rerum magnam nam ipsam nesciunt aut rerum necessitatibus est quia esse non magni quae.",
-  },
-  {
-    id: 3,
-    title: "Third event",
-    date: "2022-03-01",
-    description:
-      "Sit culpa quas ex nulla animi qui deleniti minus rem placeat mollitia. Et enim doloremque et quia sequi ea dolores voluptatem ea rerum vitae. Aut itaque incidunt est aperiam vero sit explicabo fuga id optio quis et molestiae nulla ex quae quam. Ab eius dolores ab tempora dolorum eos beatae soluta At ullam placeat est incidunt cumque.",
-  },
-];
+import IconBtn from "@/components/IconBtn";
+import { plus_jakarta_sans, poppins, roboto } from "@/lib/fonts";
+import CheckListItem from "@/components/CheckList/CheckListItem";
+import PricingBox from "@/components/Box/PricingBox";
+import SkillBox from "@/components/Box/SkillBox";
+import TechnologiesProgress from "@/components/TechProgress";
+import FlagListItem from "@/components/CheckList/FlagListItem";
+import ServiceBox from "@/components/Box/ServiceBox";
+import data from "@/lib/data";
 
 export default function Home() {
   return (
@@ -237,10 +58,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col items-center mt-7 gap-4">
-                <Slider texts={skills} text_center={true} />
+                <Slider texts={data.skills} text_center={true} />
                 <h2 className="text-3xl font-medium">Andrew Ryan</h2>
                 <div className="flex flex-row gap-4 mt-2">
-                  {icons.map((obj) => (
+                  {data.icons.map((obj) => (
                     <IconBtn key={obj.id}>{obj.icon}</IconBtn>
                   ))}
                 </div>
@@ -271,7 +92,7 @@ export default function Home() {
               <div className="flex flex-row tracking-wider text-[18px] font-extralight mb-2 gap-1">
                 <p className="font-normal tracking-wider ">{"Hello, I'm "}</p>
                 <Slider
-                  texts={textSkill}
+                  texts={data.textSkill}
                   textClass={"font-normal tracking-wider"}
                 />
               </div>
@@ -294,7 +115,7 @@ export default function Home() {
                 customers.
               </p>
               <div className="flex flex-row flex-wrap mt-2">
-                {testimonial_count.map((obj, index) => {
+                {data.testimonial_count.map((obj, index) => {
                   return (
                     <div
                       className="w-1/2 flex flex-row items-center gap-2 mb-3"
@@ -325,7 +146,7 @@ export default function Home() {
                 pillText="technincal skills"
                 title="technologies"
               >
-                {technologies.map((tech, index) => (
+                {data.technologies.map((tech, index) => (
                   <TechnologiesProgress
                     key={index}
                     text={tech.text}
@@ -338,7 +159,7 @@ export default function Home() {
                 pillIcon={<Languages className="h-4 w-4" />}
                 pillText="languages"
               >
-                {languages.map((language_details, index) => (
+                {data.languages.map((language_details, index) => (
                   <FlagListItem
                     key={index}
                     language={language_details.language}
@@ -353,7 +174,7 @@ export default function Home() {
                 pillIcon={<Logs className="w-4 h-4" />}
                 pillText="Engineering Practices"
               >
-                {engineering_practices.map((obj, index) => (
+                {data.engineering_practices.map((obj, index) => (
                   <CheckListItem
                     check={obj.check}
                     text={obj.text}
@@ -369,7 +190,7 @@ export default function Home() {
                 pillText="Services"
                 pillIcon={<Settings className="h-4 w-4" />}
               >
-                {service_data.map((service) => (
+                {data.service_data.map((service) => (
                   <ServiceBox
                     key={service.title}
                     img={service.img}
@@ -388,7 +209,7 @@ export default function Home() {
                 pillText="Pricing"
                 pillIcon={<HandCoins className="h-4 w-4" />}
               >
-                {pricings.map((pricing) => {
+                {data.pricings.map((pricing) => {
                   return (
                     <PricingBox
                       amount={pricing.amount}
@@ -498,246 +319,3 @@ export default function Home() {
     </>
   );
 }
-interface CardP {
-  children: React.ReactNode;
-  className?: string;
-}
-const Card = ({ children, className }: CardP) => {
-  return (
-    <div
-      className={`flex flex-col h-full w-full py-10 bg-white px-7 leading-5 ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
-interface ChildP {
-  children?: React.ReactNode;
-  className?: string;
-}
-const IconBtn = ({ children }: ChildP) => {
-  return (
-    <a className="h-[50px] w-[50px] border  flex items-center justify-center rounded-2xl">
-      {children}
-    </a>
-  );
-};
-
-type TechProgressP = {
-  text: string;
-  progress: number;
-};
-const TechnologiesProgress = ({ text, progress }: TechProgressP) => {
-  return (
-    <div className="px-5 pt-5 border border-gray-300 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] rounded-2xl">
-      <div
-        className={`flex flex-row justify-between ${poppins.className} mb-5`}
-      >
-        <div className="flex flex-row gap-2 items-center text-sm">
-          <Image width={42} height={42} src="/python.png" alt="python" />
-          <p className="text-[#646464]">{text}</p>
-        </div>
-        <span
-          className={`text-primary_body py-1 px-2 border border-gray-300 rounded-full h-fit text-xs `}
-        >
-          {progress}%
-        </span>
-      </div>
-      <Progress value={progress} className="h-[3px] w-full bg-[#0000001f]" />
-    </div>
-  );
-};
-interface SkillP extends ChildP {
-  pillIcon: React.ReactNode;
-  pillText: string;
-  title?: string;
-}
-const SkillBox = ({ children, pillIcon, pillText, title }: SkillP) => {
-  return (
-    <div className="flex flex-col">
-      <Pills text={pillText.toUpperCase()}>{pillIcon}</Pills>
-      {title && (
-        <h2
-          className={`text-[23px] font-normal ${plus_jakarta_sans.className} leading-8`}
-        >
-          {title.toUpperCase()}
-        </h2>
-      )}
-      <div
-        className={`${title ? "mt-[20px]" : "mt-[4px]"} flex flex-col gap-4`}
-      >
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const FlagListItem = ({
-  percent,
-  language,
-  flag_alt,
-  flag_link,
-}: {
-  percent: number;
-  language: string;
-  flag_alt: string;
-  flag_link: string;
-}) => {
-  const totalCircle = 10;
-  const filledCircle = Math.ceil(percent / totalCircle);
-  const unfilledCicle = totalCircle - filledCircle;
-  return (
-    <div className="flex flex-row gap-3 items-center text-primary_body">
-      <div className="flex flex-col justify-center items-center bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] aspect-square w-[58px] p-3 rounded-2xl border border-gray-300">
-        <Image
-          src={flag_link}
-          className="h-full w-full object-contain"
-          width={100}
-          height={100}
-          alt={flag_alt}
-        />
-      </div>
-      <div className="w-full">
-        <p className="mb-2 text-sm">{language}</p>
-        <div className="flex flex-row gap-2 justify-between w-full items-center">
-          <div className="flex flex-row gap-2">
-            {[...new Array(filledCircle)].map((_, index) => (
-              <div
-                className="h-[14px] w-[14px] rounded-full bg-primary_green"
-                key={index}
-              ></div>
-            ))}
-            {[...new Array(unfilledCicle)].map((_, idx) => (
-              <div
-                className="h-[14px] w-[14px] rounded-full bg-[#eee]"
-                key={idx}
-              ></div>
-            ))}
-          </div>
-          <span className="text-sm">{percent}%</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-type ServiceBoxP = {
-  img: string;
-  small_title: string;
-  title: string;
-  body: string;
-  linkText: string;
-};
-const ServiceBox = ({
-  img,
-  small_title,
-  title,
-  body,
-  linkText,
-}: ServiceBoxP) => {
-  return (
-    <div
-      className={`border border-gray-200 h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6`}
-    >
-      <div className="flex flex-row gap-4 h-[50px] w-full ">
-        <Image
-          src={img}
-          alt="service"
-          width={50}
-          height={50}
-          className="aspect-video object-contain h-full"
-        />
-        <div className="flex flex-col justify-center">
-          <p
-            className={`text-sm font-extralight  text-[#9c9c9c] ${poppins.className}`}
-          >
-            {small_title}
-          </p>
-          <h4 className={`font-medium text-primary ${poppins.className}`}>
-            {title}
-          </h4>
-        </div>
-      </div>
-      <p className={`text-xs text-[#9c9c9c] ${poppins.className} `}>{body}</p>
-      <Link
-        className="underline uppercase text-xs  text-thin tracking-widest"
-        href={"/"}
-      >
-        {linkText}
-      </Link>
-    </div>
-  );
-};
-type CheckListItemP = {
-  check: boolean;
-  text: string;
-  gap?: "gap-3" | "gap-2";
-  className?: string;
-};
-const CheckListItem = ({
-  check,
-  text,
-  gap = "gap-3",
-  className = "",
-}: CheckListItemP) => {
-  return (
-    <div
-      className={`flex flex-row ${gap} items-center text-sm ${poppins.className} ${className} `}
-    >
-      {/* <Check className={`w-4 h-4 text-primary_green font-bold`} /> */}
-      <Image src="/tick_icon.svg" alt="tick" width={20} height={20} />
-      <p className={`text-primary_body ${!check && "line-through"} `}>{text}</p>
-    </div>
-  );
-};
-
-type PricingBoxP = {
-  duration: string;
-  amount: number;
-  available_content: string[];
-  unavailable_content: string[];
-};
-const PricingBox = ({
-  duration,
-  amount,
-  available_content,
-  unavailable_content,
-}: PricingBoxP) => {
-  return (
-    <div
-      className={`border border-gray-200 px-5 py-[40px] relative flex flex-col gap-9 ${poppins.className} rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))]`}
-    >
-      <div className="flex flex-row items-center justify-between h-[45px]">
-        <span className="text-[45px] text-primary_green font-medium">
-          ${amount}
-        </span>
-        <Button className="bg-primary_green rounded-full text-blac text-xs absolute top-[20px] right-5">
-          PER {duration.toUpperCase()}
-        </Button>
-      </div>
-      <Button
-        variant={"outline"}
-        className="rounded-full w-fit py-[10px] px-[25px] border-[#323232] text-[#323232]"
-      >
-        ORDER NOW
-      </Button>
-      <div className="flex flex-col gap-3 leading-7">
-        {available_content.map((str) => {
-          return (
-            <CheckListItem check={true} text={str} key={str} gap="gap-2" />
-          );
-        })}
-        {unavailable_content.map((str) => {
-          return (
-            <CheckListItem
-              check={false}
-              text={str}
-              key={str}
-              gap="gap-2"
-              className="text-sm leading-7 tracking-wide"
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-};

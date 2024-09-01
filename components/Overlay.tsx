@@ -11,9 +11,6 @@ const Overlay = () => {
       clearTimeout(timer);
     };
   }, []);
-  // if (isTimedup) {
-  //   return <div></div>;
-  // }
   return (
     <div className="preloader overflow-hidden h-screen w-screen fixed top-0 left-0 right-0 bottom-0 z-50">
       <div className="h-screen w-screen z-[99] fixed top-0 bottom-0 left-0 overflow-hidden right-0 bg-[#c6cfc8]">
