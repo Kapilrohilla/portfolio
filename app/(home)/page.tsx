@@ -25,10 +25,16 @@ import ServiceBox from "@/components/Box/ServiceBox";
 import data from "@/lib/data";
 import { Toaster } from "@/components/ui/sonner";
 import Nav from "@/components/Nav";
+import EmblaCarousel from "@/components/Carousel";
+import Cursor from "@/components/Cursor";
 
 export default function Home() {
+  const SLIDE_COUNT = 5;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
   return (
     <>
+      <Cursor />
       <Header />
       <main className="h-full  min-h-screen mt-14">
         <div className="relative h-screen flex gap-10">
@@ -47,7 +53,7 @@ export default function Home() {
               className="min-h-[560px] max-h-[750px] min-w-[] max-w-[] px-7 pt-11 flex flex-col bg-white"
               id="about"
             >
-              <div className="h-fit w-fit glitch max-h-[279px] min-h-full aspect-[4/3] rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
+              <div className="h-fit glitch max-h-[279px] min-h-full aspect-[4/3] rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
                 <img
                   src="profile.jpg"
                   alt="something"
@@ -245,9 +251,40 @@ export default function Home() {
             </Card>
             <Card>
               <SkillBox
-                pillText="Education"
+                pillText="TestimonialS"
                 pillIcon={<Book className="h-4 w-4" />}
-              ></SkillBox>
+                title="Here what my client say"
+              >
+                <EmblaCarousel slides={SLIDES} options={{ loop: true }} />
+                <div className="py-5 px-10 rounded-full border border-gray-200 text-sm font-light leading-5 text-center mt-10 mb-2">
+                  More than{" "}
+                  <span className="text-primary_green font-normal">
+                    200+ companies
+                  </span>
+                  trust us worldwide
+                </div>
+                <div className="flex flex-row flex-wrap ">
+                  {[
+                    { imgSrc: "b1" },
+                    { imgSrc: "b2" },
+                    { imgSrc: "b1" },
+                    { imgSrc: "b1" },
+                    { imgSrc: "b2" },
+                    { imgSrc: "b2" },
+                  ].map((_, idx) => {
+                    return (
+                      <img
+                        key={idx}
+                        src={`/brands/${_.imgSrc}.png`}
+                        width={100}
+                        height={100}
+                        className="object-contain w-1/2"
+                        alt=";"
+                      />
+                    );
+                  })}
+                </div>
+              </SkillBox>
             </Card>
             <Card>
               <SkillBox
