@@ -13,9 +13,9 @@ const SkillBox = ({ children, pillIcon, pillText, title }: SkillP) => {
       <Pills text={pillText.toUpperCase()}>{pillIcon}</Pills>
       {title && (
         <h2
-          className={`text-[23px] font-normal ${plus_jakarta_sans.className} leading-8`}
+          className={`text-[22px] font-medium ${plus_jakarta_sans.className} leading-8`}
         >
-          {title.toUpperCase()}
+          {title}
         </h2>
       )}
       <div

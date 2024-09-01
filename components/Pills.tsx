@@ -6,11 +6,11 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const Pills = ({ children, text }: PillsP) => {
-  //   return <div>Pills</div>;
+const Pills = ({ children, text, className, handleClick }: PillsP) => {
   return (
     <span
-      className={`mb-[15px] uppercase inline-flex flex-row gap-2 ${poppins.className} font-light text-[12px] border border-gray-300 py-[2px] px-3 rounded-full w-fit justify-center items-center tracking-widest text-[#646464]`}
+      className={`mb-[15px] uppercase inline-flex flex-row gap-2 ${poppins.className} font-light text-[12px] border border-gray-300 py-[2px] px-3 rounded-full w-fit justify-center items-center tracking-widest text-[#646464] ${className}`}
+      onClick={handleClick}
     >
       {children}
       {text}
@@ -21,5 +21,7 @@ const Pills = ({ children, text }: PillsP) => {
 export default Pills;
 type PillsP = {
   children: React.ReactNode;
-  text: string;
+  text?: string;
+  className?: string;
+  handleClick?: () => any;
 };

@@ -1,6 +1,6 @@
 import { poppins } from "@/lib/fonts";
 import { Button } from "../ui/button";
-import CheckListItem from "../CheckList/CheckListItem";
+import CheckListItem from "../Lists/CheckListItem";
 
 type PricingBoxP = {
   duration: string;

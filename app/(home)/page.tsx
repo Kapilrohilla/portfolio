@@ -14,17 +14,17 @@ import {
   Settings,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import IconBtn from "@/components/IconBtn";
 import { plus_jakarta_sans, poppins, roboto } from "@/lib/fonts";
-import CheckListItem from "@/components/CheckList/CheckListItem";
+import CheckListItem from "@/components/Lists/CheckListItem";
 import PricingBox from "@/components/Box/PricingBox";
 import SkillBox from "@/components/Box/SkillBox";
 import TechnologiesProgress from "@/components/TechProgress";
-import FlagListItem from "@/components/CheckList/FlagListItem";
+import FlagListItem from "@/components/Lists/FlagListItem";
 import ServiceBox from "@/components/Box/ServiceBox";
 import data from "@/lib/data";
 import { Toaster } from "@/components/ui/sonner";
+import Nav from "@/components/Nav";
 
 export default function Home() {
   return (
@@ -223,8 +223,13 @@ export default function Home() {
             <Card>
               <SkillBox
                 pillText="Projects"
+                title="Explore Portfolio By Technology"
                 pillIcon={<Book className="h-4 w-4" />}
-              ></SkillBox>
+              >
+                <Nav navs={["all", "python", "js", "node", "bash"]}>
+                  <></>
+                </Nav>
+              </SkillBox>
             </Card>
             <Card>
               <SkillBox
@@ -243,6 +248,19 @@ export default function Home() {
                 pillText="Education"
                 pillIcon={<Book className="h-4 w-4" />}
               ></SkillBox>
+            </Card>
+            <Card>
+              <SkillBox
+                pillText="My Blogs"
+                title="Exploring Our Blogs"
+                pillIcon={<Book className="h-4 w-4" />}
+              >
+                <Nav
+                  navs={["all", "music", "design", "code"]}
+                  blog={true}
+                  showMore={true}
+                ></Nav>
+              </SkillBox>
             </Card>
             <Card className="rounded-b-[30px]">
               <SkillBox
