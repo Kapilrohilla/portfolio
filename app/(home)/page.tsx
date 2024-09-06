@@ -30,6 +30,7 @@ import Nav from "@/components/Nav";
 import EmblaCarousel from "@/components/Carousel";
 import Cursor from "@/components/Cursor";
 import Hamburger from "@/components/Hamburger";
+import CircularProgressBarWrapper from "@/components/CircularProgressBar";
 
 export default function Home() {
   const SLIDE_COUNT = 5;
@@ -217,6 +218,38 @@ export default function Home() {
                       />
                     ))}
                   </SkillBox>
+                  <SkillBox
+                    pillText="Tool Skills"
+                    title="ToolStack"
+                    pillIcon={<Book className="h-4 w-4" />}
+                  >
+                    <div className="flex flex-wrap gap-9">
+                      {new Array(6).fill(0).map((_, idx) => {
+                        return (
+                          <CircularProgressBarWrapper
+                            imgSrc={"python"}
+                            key={idx}
+                          />
+                        );
+                      })}
+                    </div>
+                  </SkillBox>
+                  <SkillBox
+                    pillText="General skills"
+                    title="General Skills"
+                    pillIcon={<Book className="h-4 w-4" />}
+                  >
+                    <div className="flex flex-wrap gap-9">
+                      {new Array(6).fill(0).map((_, idx) => {
+                        return (
+                          <CircularProgressBarWrapper
+                            //    imgSrc={"python"}
+                            key={idx}
+                          />
+                        );
+                      })}
+                    </div>
+                  </SkillBox>
                   {/* langauges*/}
                   <div className="flex flex-col md:flex-row gap-16 md:gap-[4%]">
                     <SkillBox
@@ -305,12 +338,7 @@ export default function Home() {
                     </Nav>
                   </SkillBox>
                 </Card>
-                <Card>
-                  <SkillBox
-                    pillText="Resume"
-                    pillIcon={<Book className="h-4 w-4" />}
-                  ></SkillBox>
-                </Card>
+                {/* <Card></Card> */}
                 <Card>
                   <SkillBox
                     pillText="Courses"
