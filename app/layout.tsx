@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Overlay from "@/components/Overlay";
+// import ContextWrapper, { wrapperType } from "@/contexts/ContextWrapper";
+import CursorProvider from "@/contexts/cursor";
 const inter = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -21,7 +23,11 @@ export default function RootLayout({
     <html lang="en" className="min-h-full">
       <body className="min-h-screen">
         {/* <Overlay /> */}
-        <div className={`min-h-screen ${inter.className}`}>{children}</div>
+        <CursorProvider>
+          {/* <ContextWrapper contextType={wrapperType.CursorContext}> */}
+          <div className={`min-h-screen ${inter.className}`}>{children}</div>
+          {/* </ContextWrapper> */}
+        </CursorProvider>
       </body>
     </html>
   );

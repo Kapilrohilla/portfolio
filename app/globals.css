@@ -357,4 +357,15 @@ html {
   pointer-events: none;
   position: fixed;
   transform: translateX(-50%) translateY(-50%);
+  transition:
+    width 0.2s ease-in-out,
+    height 0.2s ease-in-out,
+    background 0.2s ease-in-out;
+}
+
+.cursor_big {
+  height: 80px;
+  width: 80px;
+  background-color: transparent;
+  border: 1px solid var(--primary-green);
 }

@@ -1,7 +1,9 @@
 "use client";
+import { useCursor } from "@/contexts/cursor";
 import React, { useEffect } from "react";
 
 const Cursor = () => {
+  const { isBig } = useCursor();
   useEffect(() => {
     const cursor = document.querySelector(".cursor");
     let eventListener: any;
@@ -19,6 +21,14 @@ const Cursor = () => {
       }
     };
   }, []);
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor");
+    if (isBig) {
+      cursor?.classList.add("cursor_big");
+    } else {
+      cursor?.classList.remove("cursor_big");
+    }
+  }, [isBig]);
   return <div className="cursor"></div>;
 };
 

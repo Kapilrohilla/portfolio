@@ -10,8 +10,10 @@ import {
   HandCoins,
   Languages,
   Logs,
+  Moon,
   Send,
   Settings,
+  UserPenIcon,
 } from "lucide-react";
 import Image from "next/image";
 import IconBtn from "@/components/IconBtn";
@@ -27,6 +29,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Nav from "@/components/Nav";
 import EmblaCarousel from "@/components/Carousel";
 import Cursor from "@/components/Cursor";
+import Hamburger from "@/components/Hamburger";
 
 export default function Home() {
   const SLIDE_COUNT = 5;
@@ -54,10 +57,55 @@ export default function Home() {
           >
             <div className="flex flex-gap flex-col md:flex-row md:max-w-[1320px] md:m-auto gap-5">
               {/* about */}
-              <div className="static top-10">
+              <div className="md:flex flex-row gap-5 none">
+                <div
+                  className="h-fit border md:flex flex-col gap-2 hidden"
+                  style={{ position: "sticky", top: "10px" }}
+                >
+                  <Hamburger />
+                  <CenterCircle>
+                    <Moon className="stroke-[1] " />
+                  </CenterCircle>
+                  <div className="flex flex-col bg-white rounded-full items-center py-4 gap-4">
+                    {[
+                      {
+                        content: <UserPenIcon className=" w-4 h-4" />,
+                        id: "icon",
+                      },
+                      {
+                        content: <UserPenIcon className=" w-4 h-4" />,
+                        id: "icon",
+                      },
+                      {
+                        content: <UserPenIcon className=" w-4 h-4" />,
+                        id: "icon",
+                      },
+                      {
+                        content: <UserPenIcon className=" w-4 h-4" />,
+                        id: "icon",
+                      },
+                      {
+                        content: <UserPenIcon className=" w-4 h-4" />,
+                        id: "icon",
+                      },
+                    ].map((obj) => (
+                      <div
+                        key={obj.id}
+                        className="h-12 w-12 rounded-full flex justify-center items-center"
+                        // className="h-10 w-10 rounded-full flex justify-center items-center"
+                        style={{
+                          backgroundColor: "rgba(0,0,0,0.02)",
+                        }}
+                      >
+                        {obj.content}
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <div
                   className="min-h-[560px] max-h-[750px] max-w-[] px-7 pt-11 flex flex-col bg-white md:rounded-l-3xl md:rounded-br-3xl md:h-[500px] md:w-[300px] lg:w-[320px]"
                   id="about"
+                  style={{ position: "sticky", top: "0" }}
                 >
                   <div className="h-fit glitch aspect-[4/3] md:aspect-auto rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
                     <img
@@ -397,3 +445,11 @@ export default function Home() {
     </>
   );
 }
+
+const CenterCircle = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="h-[62px] w-[62px] rounded-full bg-white flex justify-center items-center">
+      {children}
+    </div>
+  );
+};
