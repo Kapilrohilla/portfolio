@@ -6,12 +6,14 @@ import {
   Mail,
   Menu,
   Moon,
+  Sun,
   UserPen,
   X,
 } from "lucide-react";
 import React, { useState } from "react";
 import Slider from "./Slider";
 import Link from "next/link";
+import { useDarkMode } from "@/contexts/darkMode";
 
 const navItems = [
   {
@@ -70,17 +72,18 @@ const Header = () => {
   const [active_nav, set_active_nav] = useState(navItems[0].text);
   const skills = ["Data Engineer", "Data Architect", "Software Enignner"];
   return (
-    <header className="fixed top-0 w-full md:opacity-0 bg-white z-40">
+    <header className="fixed top-0 w-full md:opacity-0 bg-background  z-40">
       <div className="h-16 py-2.5 px-4">
         {/* left */}
         <div className="flex flex-row  justify-between text-sm items-center">
           <div>
-            <h1 className="font-medium mb-1">Andrew Ryan</h1>
+            <h1 className="font-medium mb-1 text-heading">Andrew Ryan</h1>
             <Slider texts={skills} />
           </div>
           {/* right */}
           <div className="flex flex-row gap-3">
-            <Moon className="h-6 w-6 text-primary_body" />
+            <LightMode />
+
             <EllipsisVertical className="h-6 w-6 text-primary_body" />
             <button onClick={() => setOpen(!open)}>
               {open ? (
@@ -124,6 +127,16 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+const LightMode = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const dom_to_load = isDarkMode ? (
+    <Sun className="h-6 w-6 text-primary_body" onClick={toggleDarkMode} />
+  ) : (
+    <Moon className="h-6 w-6 text-primary_body" onClick={toggleDarkMode} />
+  );
+  return dom_to_load;
 };
 
 export default Header;

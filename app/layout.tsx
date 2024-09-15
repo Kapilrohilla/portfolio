@@ -4,6 +4,7 @@ import "./globals.css";
 import Overlay from "@/components/Overlay";
 // import ContextWrapper, { wrapperType } from "@/contexts/ContextWrapper";
 import CursorProvider from "@/contexts/cursor";
+import DarkModeProvider from "@/contexts/darkMode";
 const inter = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -23,11 +24,13 @@ export default function RootLayout({
     <html lang="en" className="min-h-full">
       <body className="min-h-screen">
         {/* <Overlay /> */}
-        <CursorProvider>
-          {/* <ContextWrapper contextType={wrapperType.CursorContext}> */}
-          <div className={`min-h-screen ${inter.className}`}>{children}</div>
-          {/* </ContextWrapper> */}
-        </CursorProvider>
+        <DarkModeProvider>
+          <CursorProvider>
+            {/* <ContextWrapper contextType={wrapperType.CursorContext}> */}
+            <div className={`min-h-screen ${inter.className}`}>{children}</div>
+            {/* </ContextWrapper> */}
+          </CursorProvider>
+        </DarkModeProvider>
       </body>
     </html>
   );

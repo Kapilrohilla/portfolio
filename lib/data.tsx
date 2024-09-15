@@ -43,10 +43,10 @@ const languages = [
   },
 ];
 const icons = [
-  { id: "1", icon: <Linkedin className="h-4 w-4" /> },
-  { id: "2", icon: <Github className="h-4 w-4" /> },
-  { id: "3", icon: <Instagram className="h-4 w-4" /> },
-  { id: "4", icon: <Twitter className="h-4 w-4" /> },
+  { id: "1", icon: <Linkedin className="h-4 w-4 text-heading" /> },
+  { id: "2", icon: <Github className="h-4 w-4 text-heading" /> },
+  { id: "3", icon: <Instagram className="h-4 w-4 text-heading" /> },
+  { id: "4", icon: <Twitter className="h-4 w-4 text-heading" /> },
 ];
 
 const engineering_practices = [

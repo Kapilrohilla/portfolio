@@ -10,7 +10,7 @@ const BlogBox = ({ className, imgSrc }: BlogBoxP) => {
   return (
     <div>
       <div
-        className={`w-full border border-gray-200 rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
+        className={`w-full border border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
       >
         <Image
           src={imgSrc || "/project-photo.png"}
@@ -25,7 +25,7 @@ const BlogBox = ({ className, imgSrc }: BlogBoxP) => {
               {new Date().toDateString()}
             </Pills>
           </div>
-          <p className="leading-7 ">Music Player Design</p>
+          <p className="leading-7 text-heading">Music Player Design</p>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ const FlagListItem = ({
             ))}
             {[...new Array(unfilledCicle)].map((_, idx) => (
               <div
-                className="h-[14px] w-[14px] rounded-full bg-[#eee]"
+                className="h-[14px] w-[14px] rounded-full bg-[#eee] dark:bg-[#3e4148]"
                 key={idx}
               ></div>
             ))}

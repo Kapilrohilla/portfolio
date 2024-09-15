@@ -1,4 +1,5 @@
 "use client";
+import { useDarkMode } from "@/contexts/darkMode";
 import { poppins } from "@/lib/fonts";
 import Image from "next/image";
 import {
@@ -9,9 +10,10 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 const CircularProgressBarWrapper = ({ imgSrc }: { imgSrc?: string }) => {
   const percentage = 66;
+  const { isDarkMode } = useDarkMode();
   if (imgSrc) {
     return (
-      <div className="w-[161px] h-[161px] p-5 border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] relative">
+      <div className="w-[161px] h-[161px] p-5 border border-gray-300 dark:border-[rgba(255,255,255,0.06)] rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] relative">
         <CircularProgressbarWithChildren
           value={66}
           className="h-[100px] w-[100px]"
@@ -19,7 +21,7 @@ const CircularProgressBarWrapper = ({ imgSrc }: { imgSrc?: string }) => {
           styles={buildStyles({
             pathColor: "#4CAF50",
             textColor: "#4CAF50",
-            trailColor: "rgba(0,0,0,0.1)",
+            trailColor: isDarkMode ? "rgba(50,50,50, 1)" : "rgba(0,0,0,0.1)",
           })}
         >
           <Image
@@ -30,11 +32,11 @@ const CircularProgressBarWrapper = ({ imgSrc }: { imgSrc?: string }) => {
             alt="doge"
           />
           <div style={{ fontSize: 12 }}>
-            <strong className={`${poppins.className}`}>66%</strong>
+            <strong className={`${poppins.className} text-heading`}>66%</strong>
           </div>
         </CircularProgressbarWithChildren>
         <span
-          className={`text-sm text-primary_body absolute left-1/2 translate-x-[-50%] mt-2 ${poppins.className}`}
+          className={`text-sm text-primary_body absolute left-1/2 translate-x-[-50%] mt-2 ${poppins.className} text-heading`}
         >
           Dbeaver
         </span>
@@ -51,13 +53,13 @@ const CircularProgressBarWrapper = ({ imgSrc }: { imgSrc?: string }) => {
         strokeWidth={5}
         styles={buildStyles({
           pathColor: "#4CAF50",
-          textColor: "#000000aa",
+          textColor: isDarkMode ? "#ffffff" : "#000000aa",
           textSize: "14px",
-          trailColor: "rgba(0,0,0,0.1)",
+          trailColor: isDarkMode ? "rgba(50,50,50, 1)" : "rgba(0,0,0,0.1)",
         })}
       />
       <span
-        className={`text-sm text-primary_body absolute left-1/2 translate-x-[-50%] mt-2 ${poppins.className}`}
+        className={`text-sm text-primary_body absolute left-1/2 translate-x-[-50%] mt-2 ${poppins.className} text-heading`}
       >
         Dbeaver
       </span>

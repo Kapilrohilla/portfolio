@@ -19,9 +19,13 @@ const ServiceBox = ({
 }: ServiceBoxP) => {
   return (
     <div
-      className={`border border-gray-200 h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6 ${clasName}`}
+      className={`border light:border-gray-200 dark:border-[rgba(255,255,255,0.06)] h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6 ${clasName}`}
+      style={{
+        background:
+          "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
+      }}
     >
-      <div className="flex flex-row gap-4 h-[50px] w-full ">
+      <div className="flex flex-row gap-5 h-[50px] w-full ">
         <Image
           src={img}
           alt="service"
@@ -40,9 +44,13 @@ const ServiceBox = ({
           </h4>
         </div>
       </div>
-      <p className={`text-xs text-[#9c9c9c] ${poppins.className} `}>{body}</p>
+      <p
+        className={`text-sm text-[#9c9c9c] ${poppins.className} dark:text-[#EAEAEA]`}
+      >
+        {body}
+      </p>
       <Link
-        className="underline uppercase text-xs  text-thin tracking-widest"
+        className="underline uppercase text-sm  text-thin tracking-widest"
         href={"/"}
       >
         {linkText}

@@ -18,7 +18,7 @@ const PricingBox = ({
 }: PricingBoxP) => {
   return (
     <div
-      className={`border border-gray-200 px-5 py-[40px] relative flex flex-col gap-9 ${poppins.className} rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
+      className={`border border-gray-200 dark:border-[rgba(255,255,255,0.06)] px-5 py-[40px] relative flex flex-col gap-9 ${poppins.className} rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
     >
       <div className="flex flex-row items-center justify-between h-[45px]">
         <span className="text-[45px] text-primary_green font-medium">
@@ -30,7 +30,7 @@ const PricingBox = ({
       </div>
       <Button
         variant={"outline"}
-        className="rounded-full w-fit py-[10px] px-[25px] border-[#323232] text-[#323232]"
+        className="rounded-full w-fit py-[10px] px-[25px] border-gray-400 text-[#323232] bg-transparent dark:text-heading"
       >
         ORDER NOW
       </Button>

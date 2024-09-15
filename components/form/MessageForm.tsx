@@ -50,7 +50,7 @@ const MessageForm = ({ className }: MsgFormP) => {
                 <input
                   placeholder="Name"
                   {...field}
-                  className={`h-[50px] w-full border border-gray-300 rounded-[10px] px-4 outline-none placehoder-gray-300 ${poppins.className} font-light focus:text-primary_green text-sm`}
+                  className={`h-[50px] w-full border border-gray-300 dark:border-[rgba(255,255,255,0.09)] rounded-[10px] px-4 outline-none placehoder-gray-300  ${poppins.className} font-light focus:text-primary_green text-sm bg-transparent`}
                 />
               </FormControl>
               <FormMessage />
@@ -66,7 +66,7 @@ const MessageForm = ({ className }: MsgFormP) => {
                 <input
                   placeholder="Email address"
                   {...field}
-                  className={`h-[50px] w-full border border-gray-300 rounded-[10px] px-4 outline-none placehoder-gray-300 ${poppins.className} font-light focus:text-primary_green text-sm`}
+                  className={`h-[50px] w-full border border-gray-300 dark:border-[rgba(255,255,255,0.09)] rounded-[10px] px-4 outline-none placehoder-gray-300 ${poppins.className} font-light focus:text-primary_green text-sm bg-transparent`}
                 />
               </FormControl>
               <FormMessage />
@@ -82,7 +82,7 @@ const MessageForm = ({ className }: MsgFormP) => {
                 <textarea
                   placeholder="Email address"
                   {...field}
-                  className={`h-[120px] py-4 w-full border border-gray-300 rounded-[10px] px-4 outline-none placehoder-gray-300 ${poppins.className} font-light focus:text-primary_green text-sm`}
+                  className={`h-[120px] py-4 w-full border border-gray-300 dark:border-[rgba(255,255,255,0.09)] rounded-[10px] px-4 outline-none placehoder-gray-300 ${poppins.className} font-light focus:text-primary_green text-sm bg-transparent`}
                 />
               </FormControl>
               <FormMessage />
@@ -90,7 +90,7 @@ const MessageForm = ({ className }: MsgFormP) => {
           )}
         />
         <Button
-          className={`bg-[#eee] text-black text-sm ${poppins.className} h-[50px] uppercase w-fit min-w-52 gap-2 rounded-full active:bg-[#eee] active:text-primary_green focus:bg-[#eee]`}
+          className={`bg-[#eee] dark:bg-transparent text-heading text-sm ${poppins.className} h-[50px] uppercase w-fit min-w-52 gap-2 rounded-full active:bg-[#eee] active:text-primary_green focus:bg-[#eee] dark:justify-start`}
           onClick={() => {
             const id = toast("Message Sent", {
               description: `At, ${new Date().toDateString()}`,

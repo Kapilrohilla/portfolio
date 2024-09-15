@@ -27,10 +27,10 @@ const EmblaCarousel: React.FC<EmblaCarouselP> = (props) => {
         <div className="embla__container w-full">
           {slides.map((idx) => (
             <div
-              className="embla__slide w-full border border-gray-200 p-5 rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))]"
+              className="embla__slide w-full border border-gray-200 dark:border-[rgba(255,255,255,0.06)] p-5 rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] "
               key={idx}
             >
-              <div className="flex flex-row gap-1 my-2">
+              <div className="flex flex-row gap-1 my-2 ">
                 {Array.from(new Array(5).keys()).map((idx) => (
                   <StarIcon
                     stroke={"0"}
@@ -62,7 +62,7 @@ const EmblaCarousel: React.FC<EmblaCarouselP> = (props) => {
                   <p className="text-base font-semibold text-primary_green">
                     John Doe
                   </p>
-                  <p className="text-xs text-gray-500 font-light">
+                  <p className="text-xs text-gray-500 dark:text-heading font-light">
                     CEO, Company Name
                   </p>
                 </div>
@@ -75,7 +75,6 @@ const EmblaCarousel: React.FC<EmblaCarouselP> = (props) => {
       <div className="embla__controls">
         <div className="flex flex-row gap-2 justify-center">
           {scrollSnaps.map((_, index) => {
-            // console.log(selectedIndex, index);
             return (
               <DotButton
                 key={index}
@@ -83,7 +82,7 @@ const EmblaCarousel: React.FC<EmblaCarouselP> = (props) => {
                 className={" w-2 h-2 rounded-full embla__dot".concat(
                   Number(index) == Number(selectedIndex)
                     ? " embla__dot--selected bg-primary_green"
-                    : " bg-[#00000033]"
+                    : " bg-[#00000033] dark:bg-[rgba(255,255,255,0.3)]"
                 )}
               />
             );

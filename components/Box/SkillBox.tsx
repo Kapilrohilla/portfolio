@@ -18,11 +18,19 @@ const SkillBox = ({
   innerClassName,
 }: SkillP) => {
   return (
-    <div className={`flex flex-col md:gap-[10px] ${className}`}>
+    <div
+      className={`flex flex-col md:gap-[10px] ${className} bg-none bg-transparent`}
+      style={
+        {
+          // backgroundImage:
+          //   "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
+        }
+      }
+    >
       <Pills text={pillText.toUpperCase()}>{pillIcon}</Pills>
       {title && (
         <h2
-          className={`text-[22px] md:text-[32px] font-medium ${plus_jakarta_sans.className} leading-8`}
+          className={`text-[22px] md:text-[32px] font-medium ${plus_jakarta_sans.className} leading-8 text-heading`}
         >
           {title}
         </h2>

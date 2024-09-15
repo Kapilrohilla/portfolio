@@ -31,27 +31,22 @@ import EmblaCarousel from "@/components/Carousel";
 import Cursor from "@/components/Cursor";
 import Hamburger from "@/components/Hamburger";
 import CircularProgressBarWrapper from "@/components/CircularProgressBar";
-import Timeline from "@/components/timeline/timeline";
+import DarkModeWrapper from "@/components/DarkMode";
+import { useDarkMode } from "@/contexts/darkMode";
+import BgVideo from "@/components/BgVideo";
+import DesktopNav from "@/components/DesktopNav";
 
 export default function Home() {
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
-    <>
+    <DarkModeWrapper>
       <Cursor />
       <Header />
       <main className="h-full  min-h-screen mt-14">
         <div className="relative h-screen flex gap-10">
-          <video
-            autoPlay
-            muted
-            playsInline
-            loop
-            className="w-full h-full object-cover fixed top-0"
-          >
-            <source src="/bg-light.mp4" type="video/mp4" />
-          </video>
+          <BgVideo />
           <div
             className="
           absolute top-0 flex gap-5 flex-col left-1/2 -translate-x-1/2 w-full
@@ -59,55 +54,17 @@ export default function Home() {
           >
             <div className="flex flex-gap flex-col md:flex-row md:max-w-[1320px] md:m-auto gap-5">
               {/* about */}
-              <div className="md:flex flex-row gap-5 none">
+              <div className="md:flex flex-row gap-5 none ">
+                <DesktopNav />
                 <div
-                  className="h-fit border md:flex flex-col gap-2 hidden"
-                  style={{ position: "sticky", top: "10px" }}
-                >
-                  <Hamburger />
-                  <CenterCircle>
-                    <Moon className="stroke-[1] " />
-                  </CenterCircle>
-                  <div className="flex flex-col bg-white rounded-full items-center py-4 gap-4">
-                    {[
-                      {
-                        content: <UserPenIcon className=" w-4 h-4" />,
-                        id: "icon",
-                      },
-                      {
-                        content: <UserPenIcon className=" w-4 h-4" />,
-                        id: "icon",
-                      },
-                      {
-                        content: <UserPenIcon className=" w-4 h-4" />,
-                        id: "icon",
-                      },
-                      {
-                        content: <UserPenIcon className=" w-4 h-4" />,
-                        id: "icon",
-                      },
-                      {
-                        content: <UserPenIcon className=" w-4 h-4" />,
-                        id: "icon",
-                      },
-                    ].map((obj) => (
-                      <div
-                        key={obj.id}
-                        className="h-12 w-12 rounded-full flex justify-center items-center"
-                        // className="h-10 w-10 rounded-full flex justify-center items-center"
-                        style={{
-                          backgroundColor: "rgba(0,0,0,0.02)",
-                        }}
-                      >
-                        {obj.content}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div
-                  className="min-h-[560px] max-h-[750px] max-w-[] px-7 pt-11 flex flex-col bg-white md:rounded-l-3xl md:rounded-br-3xl md:h-[500px] md:w-[300px] lg:w-[320px]"
+                  className="min-h-[560px] max-h-[750px] px-7 pt-11 flex flex-col bg-background md:rounded-l-3xl md:rounded-br-3xl md:h-[500px] md:w-[300px] lg:w-[320px]"
                   id="about"
-                  style={{ position: "sticky", top: "0" }}
+                  style={{
+                    position: "sticky",
+                    top: "0",
+                    backgroundImage:
+                      "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
+                  }}
                 >
                   <div className="h-fit glitch aspect-[4/3] md:aspect-auto rounded-tl-[32px] rounded-bl-[32px] rounded-br-[32px]">
                     <img
@@ -122,7 +79,9 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col items-center mt-7 gap-4">
                     <Slider texts={data.skills} text_center={true} />
-                    <h2 className="text-3xl font-medium">Andrew Ryan</h2>
+                    <h2 className="text-3xl font-medium text-heading">
+                      Andrew Ryan
+                    </h2>
                     <div className="flex flex-row gap-4 mt-2">
                       {data.icons.map((obj) => (
                         <IconBtn key={obj.id}>{obj.icon}</IconBtn>
@@ -155,7 +114,7 @@ export default function Home() {
                 {/* counter section */}
                 <Card className="md:h-[620px] md:py-[80px] gap-4 md:rounded-r-3xl">
                   <div className="flex flex-row tracking-wider text-[18px] font-extralight sm:mb-2 gap-1">
-                    <p className="font-normal tracking-wider md:text-2xl ">
+                    <p className="font-normal tracking-wider md:text-2xl text-heading">
                       {"Hello, I'm "}
                     </p>
                     <Slider
@@ -164,7 +123,7 @@ export default function Home() {
                     />
                   </div>
                   <h2
-                    className={`font-medium text-[26px] md:text-[52px] md:leading-[1.3] leading-[1.4] ${plus_jakarta_sans.className}`}
+                    className={`font-medium text-[26px] md:text-[52px] md:leading-[1.3] leading-[1.4] ${plus_jakarta_sans.className} text-heading`}
                   >
                     Senior Data Engineer and{"        "}
                     <span className="px-[10px] inline-block bg-primary_green rounded-2xl rotate-[-2deg]">
@@ -189,7 +148,7 @@ export default function Home() {
                           key={index}
                         >
                           <span
-                            className={`inline-block text-4xl text-[52px] font-normal ${plus_jakarta_sans.className}`}
+                            className={`inline-block text-4xl text-[52px] font-normal text-heading ${plus_jakarta_sans.className}`}
                           >
                             {obj.count}
                           </span>
@@ -207,7 +166,7 @@ export default function Home() {
                   <SkillBox
                     pillIcon={<Dumbbell className="h-4 w-4" />}
                     pillText="technincal skills"
-                    title="technologies"
+                    title="Technologies"
                     innerClassName="md:flex-row flex-wrap md:gap-6"
                   >
                     {data.technologies.map((tech, index) => (
@@ -355,7 +314,7 @@ export default function Home() {
                     title="Here what my client say"
                   >
                     <EmblaCarousel slides={SLIDES} options={{ loop: true }} />
-                    <div className="py-5 px-10 rounded-full border border-gray-200 text-sm font-light leading-5 text-center mt-10 mb-2">
+                    <div className="py-5 px-10 rounded-full border border-gray-200 dark:text-heading text-sm font-light leading-5 text-center mt-10 mb-2">
                       More than{" "}
                       <span className="text-primary_green font-normal">
                         200+ companies
@@ -404,7 +363,7 @@ export default function Home() {
                     pillIcon={<Send className="h-4 w-4" />}
                   >
                     <h3
-                      className={`font-medium text-2xl ${plus_jakarta_sans.className}`}
+                      className={`font-medium text-2xl ${plus_jakarta_sans.className} text-heading`}
                     >
                       Lets get in touch!
                     </h3>
@@ -426,7 +385,11 @@ export default function Home() {
                       },
                     ].map((val, idx) => (
                       <div
-                        className="border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] p-5"
+                        className="border border-gray-300 dark:border-[rgba(255,255,255,0.06)] rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] p-5"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
+                        }}
                         key={idx}
                       >
                         {/* first row */}
@@ -434,8 +397,8 @@ export default function Home() {
                           <Image
                             src={"/icons/phone.svg"}
                             alt={"phone icon"}
-                            width={34}
-                            height={34}
+                            width={30}
+                            height={30}
                           />
                           <span className="text-primary_body text-sm">
                             {val.title}
@@ -452,15 +415,17 @@ export default function Home() {
                       loading="lazy"
                     ></iframe>
                     <h3
-                      className={`text-[23px] font-medium ${poppins.className} mt-10 mb-5`}
+                      className={`text-[23px] font-medium ${poppins.className} mt-10 mb-5 text-heading`}
                     >
                       Lets make your project brilliant
                     </h3>
                     <Form className="mb-20" />
                   </SkillBox>
                 </Card>
-                <Card className="py-2 mt-5">
-                  <p className={`text-sm text-[#7a7a7a] ${roboto.className}`}>
+                <Card className="md:py-2 mt-5 h-[fit-content]">
+                  <p
+                    className={`text-sm text-[#7a7a7a] dark:text-heading ${roboto.className}`}
+                  >
                     © 2024 theme is proudly created by{" "}
                     <span className="text-primary_green">@kapilrohilla</span>{" "}
                   </p>
@@ -473,14 +438,6 @@ export default function Home() {
         </div>
         <Toaster />
       </main>
-    </>
+    </DarkModeWrapper>
   );
 }
-
-const CenterCircle = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="h-[62px] w-[62px] rounded-full bg-white flex justify-center items-center">
-      {children}
-    </div>
-  );
-};

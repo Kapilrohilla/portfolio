@@ -54,6 +54,7 @@ const config = {
         },
         primary_green: "var(--primary-green)",
         primary_body: "var(--primary-body)",
+        heading: "hsl(var(--heading))",
       },
       borderRadius: {
         lg: "var(--radius)",

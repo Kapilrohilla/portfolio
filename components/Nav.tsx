@@ -21,7 +21,7 @@ const Nav = ({ navs, showMore = false, blog = false }: NavP) => {
           return (
             <Pills
               key={idx}
-              className={`${active_nav === nav ? "bg-primary_green text-black" : "bg-[#64646411] "} border-none px-3`}
+              className={`${active_nav === nav ? "bg-primary_green text-black" : "bg-[#64646411] dark:bg-[rgba(255, 255, 255, 0.03)]"} border-none px-3`}
               handleClick={() => set_active_nav(nav)}
             >
               {nav}
@@ -49,7 +49,7 @@ const Nav = ({ navs, showMore = false, blog = false }: NavP) => {
       </div>
       {showMore && (
         <Button
-          className={`bg-[#eee] text-black text-sm ${roboto.className} h-[50px] uppercase  min-w-70 gap-2 rounded-full active:bg-[#eee] active:text-primary_green focus:bg-[#eee] w-fit px-6 mt-5 font-extrabold`}
+          className={`bg-[#eee] text-black text-sm ${roboto.className} h-[50px] uppercase  min-w-70 gap-2 rounded-full active:bg-[#eee] active:text-primary_green focus:bg-[#eee] w-fit px-6 mt-5 font-extrabold dark:bg-transparent text-heading`}
         >
           LOAD MORE
         </Button>
