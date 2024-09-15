@@ -31,6 +31,7 @@ import EmblaCarousel from "@/components/Carousel";
 import Cursor from "@/components/Cursor";
 import Hamburger from "@/components/Hamburger";
 import CircularProgressBarWrapper from "@/components/CircularProgressBar";
+import Timeline from "@/components/timeline/timeline";
 
 export default function Home() {
   const SLIDE_COUNT = 5;
@@ -343,7 +344,9 @@ export default function Home() {
                   <SkillBox
                     pillText="Courses"
                     pillIcon={<Book className="h-4 w-4" />}
-                  ></SkillBox>
+                  >
+                    {/* <Timeline /> */}
+                  </SkillBox>
                 </Card>
                 <Card>
                   <SkillBox

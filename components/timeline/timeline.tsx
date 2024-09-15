@@ -1,129 +1,115 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import React from "react";
 
-const Timeline = React.forwardRef<
-  HTMLOListElement,
-  React.HTMLAttributes<HTMLOListElement>
->(({ className, ...props }, ref) => (
-  <ol ref={ref} className={cn("flex flex-col", className)} {...props} />
-));
-Timeline.displayName = "Timeline";
+const Timeline = () => {
+  const data = [
+    {
+      date: "2017 - 2018",
+      title: "Michigan Technological Courses",
+      location: "Houghton",
+      description:
+        "Michigan Technological University offers a B.S. Computer Network.",
+      certificateLink: "#",
+    },
+    {
+      date: "2016 - 2017",
+      title: "Computer Science Major",
+      location: "New York",
+      description:
+        "Management Information Systems, which focuses on information systems design.",
+      certificateLink: "#",
+    },
+  ];
 
-const TimelineItem = React.forwardRef<
-  HTMLLIElement,
-  React.LiHTMLAttributes<HTMLLIElement>
->(({ className, ...props }, ref) => (
-  <li
-    ref={ref}
-    className={cn("relative flex flex-col p-6 pt-0 [&>*]:mb-3", className)}
-    {...props}
-  />
-));
-TimelineItem.displayName = "TimelineItem";
+  return (
+    <div className="-my-6">
+      {/* <!-- Item #1 --> */}
+      <div className="relative pl-8 sm:pl-32 py-6 group">
+        {/* <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) --> */}
+        <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+          {/* <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+            May, 2020
+          </time> */}
+          {/* <div className="text-xl font-bold text-slate-900">
+            Acme was founded in Milan, Italy
+          </div> */}
+        </div>
+        {/* <!-- Content --> */}
+        <div className=" p-5 border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] relative">
+          Pretium lectus quam id leo. Urna et pharetra pharetra massa massa.
+          Adipiscing enim eu neque aliquam vestibulum morbi blandit cursus
+          risus.
+        </div>
+        {/* <div className="text-slate-500">
+          Pretium lectus quam id leo. Urna et pharetra pharetra massa massa.
+          Adipiscing enim eu neque aliquam vestibulum morbi blandit cursus
+          risus.
+        </div> */}
+      </div>
 
-const TimelineTime = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn(
-      "absolute translate-x-36 md:-translate-x-24 text-sm font-semibold leading-none text-secondary-foreground",
-      className
-    )}
-    {...props}
-  />
-));
-TimelineTime.displayName = "TimelineTime";
+      <div className="relative pl-8 sm:pl-32 py-6 group">
+        <div className="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+          The milestone
+        </div>
 
-const TimelineConnector = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "absolute top-[5px] left-[30px] -translate-x-1/2 translate-y-2 h-full w-px bg-primary",
-      className
-    )}
-    {...props}
-  />
-));
-TimelineConnector.displayName = "TimelineConnector";
+        <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+          <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+            May, 2021
+          </time>
+          <div className="text-xl font-bold text-slate-900">
+            Reached 5K customers
+          </div>
+        </div>
 
-const TimelineHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center gap-4", className)}
-    {...props}
-  />
-));
-TimelineHeader.displayName = "TimelineHeader";
+        <div className="text-slate-500">
+          Pretium lectus quam id leo. Urna et pharetra pharetra massa massa.
+          Adipiscing enim eu neque aliquam vestibulum morbi blandit cursus
+          risus.
+        </div>
+      </div>
 
-const TimelineTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, children, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "font-semibold leading-none tracking-tight text-secondary-foreground",
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </h3>
-));
-TimelineTitle.displayName = "CardTitle";
+      <div className="relative pl-8 sm:pl-32 py-6 group">
+        <div className="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+          The acquisitions
+        </div>
 
-const TimelineIcon = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col size-3 bg-primary rounded-full", className)}
-    {...props}
-  />
-));
-TimelineIcon.displayName = "TimelineIcon";
+        <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+          <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+            May, 2022
+          </time>
+          <div className="text-xl font-bold text-slate-900">
+            Acquired various companies, inluding Technology Inc.
+          </div>
+        </div>
 
-const TimelineDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-muted-foreground max-w-sm", className)}
-    {...props}
-  />
-));
-TimelineDescription.displayName = "TimelineDescription";
+        <div className="text-slate-500">
+          Pretium lectus quam id leo. Urna et pharetra pharetra massa massa.
+          Adipiscing enim eu neque aliquam vestibulum morbi blandit cursus
+          risus.
+        </div>
+      </div>
 
-const TimelineContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col items-start p-6 pt-0", className)}
-    {...props}
-  />
-));
-TimelineContent.displayName = "TimelineContent";
+      <div className="relative pl-8 sm:pl-32 py-6 group">
+        <div className="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+          The IPO
+        </div>
 
-export {
-  Timeline,
-  TimelineItem,
-  TimelineConnector,
-  TimelineHeader,
-  TimelineTitle,
-  TimelineIcon,
-  TimelineDescription,
-  TimelineContent,
-  TimelineTime,
+        <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+          <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+            May, 2023
+          </time>
+          <div className="text-xl font-bold text-slate-900">
+            Acme went public at the New York Stock Exchange
+          </div>
+        </div>
+
+        <div className="text-slate-500">
+          Pretium lectus quam id leo. Urna et pharetra pharetra massa massa.
+          Adipiscing enim eu neque aliquam vestibulum morbi blandit cursus
+          risus.
+        </div>
+      </div>
+    </div>
+  );
 };
+
+export default Timeline;
