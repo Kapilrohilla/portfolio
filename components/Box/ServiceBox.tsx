@@ -19,7 +19,7 @@ const ServiceBox = ({
 }: ServiceBoxP) => {
   return (
     <div
-      className={`border light:border-gray-200 dark:border-[rgba(255,255,255,0.06)] h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6 ${clasName}`}
+      className={`border light:border-gray-200 dark:border-[rgba(255,255,255,0.06)] h-[262px] rounded-xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] text-primary_body py-7 px-5 gap-4 flex flex-col ${poppins.className} justify-between first-of-type:mt-6 md:first-of-type:mt-auto ${clasName}`}
       style={{
         background:
           "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",

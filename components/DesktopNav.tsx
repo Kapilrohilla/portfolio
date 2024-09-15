@@ -7,9 +7,8 @@ import { useCursor } from "@/contexts/cursor";
 
 const DesktopNav = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const { isBig, setBig, setSmall } = useCursor();
+  const { setBig, setSmall } = useCursor();
   return (
-    // <div>DesktopNav</div>
     <div
       className="h-fit order md:flex flex-col gap-2 hidden "
       style={{ position: "sticky", top: "10px" }}
@@ -54,10 +53,6 @@ const DesktopNav = () => {
             className="h-12 w-12 rounded-full flex justify-center items-center bg-[rgba(0,0,0,0.02)]"
             onMouseEnter={setBig}
             onMouseLeave={setSmall}
-            // className="h-10 w-10 rounded-full flex justify-center items-center"
-            // style={{
-            //   backgroundColor: "rgba(0,0,0,0.02)",
-            // }}
           >
             {obj.content}
           </div>

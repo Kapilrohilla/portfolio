@@ -29,7 +29,7 @@ const Nav = ({ navs, showMore = false, blog = false }: NavP) => {
           );
         })}
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col md:flex-row gap-6 w-full">
         {[
           {
             id: 1,

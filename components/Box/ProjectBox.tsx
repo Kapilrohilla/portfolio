@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 const ProjectBox = ({ className, imgSrc }: ProjectP) => {
   return (
     <div
-      className={`w-full border border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
+      className={`w-full border h-fit border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
     >
       <Image
         src={imgSrc || "/project-photo.png"}

@@ -45,7 +45,7 @@ const CircularProgressBarWrapper = ({ imgSrc }: { imgSrc?: string }) => {
   }
 
   return (
-    <div className="w-[161px] h-[161px] p-5 border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] relative">
+    <div className="min-w-[161px] h-[171px] p-5 border border-gray-300 rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] relative  max-w-[171px] w-full">
       <CircularProgressbar
         value={73}
         className="h-[100px] w-[100px]"

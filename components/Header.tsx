@@ -97,7 +97,7 @@ const Header = () => {
       </div>
       {/* list  */}
       <div
-        className={`absolute bg-white overflow-hidden w-full px-3 transition-all ${
+        className={`absolute bg-background overflow-hidden w-full px-3 transition-all ${
           open ? "animate-slide-open-smooth" : "animate-slide-close-smooth"
         }`}
       >
@@ -109,13 +109,14 @@ const Header = () => {
                 setOpen(false);
               }}
               href={item.link}
-              className="flex flex-row items-center py-1 gap-2 border-t border-t-gray-100 text-xs font-medium"
+              className="flex flex-row items-center py-1 gap-2 border-t-[0.5px] border-[rgb(221 221 221 / var(--tw-bg-opacity))] text-xs font-medium text-heading h-[58px]"
               key={item.id}
             >
               <div
-                className="h-10 w-10 rounded-full flex justify-center items-center"
+                className="h-10 w-10 rounded-full flex justify-center items-center bg-[rgba(0,0,0,0.02)]"
                 style={{
-                  backgroundColor: "rgba(0,0,0,0.02)",
+                  backgroundImage:
+                    "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
                 }}
               >
                 {active_nav === item.text ? item.active_icon : item.icon}

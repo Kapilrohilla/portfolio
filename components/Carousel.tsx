@@ -23,7 +23,7 @@ const EmblaCarousel: React.FC<EmblaCarouselP> = (props) => {
   //   } = usePrevNextButtons(emblaApi);
   return (
     <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
+      <div className="embla__viewport md:overflow-visible" ref={emblaRef}>
         <div className="embla__container w-full">
           {slides.map((idx) => (
             <div

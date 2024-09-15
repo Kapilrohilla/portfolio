@@ -183,7 +183,7 @@ export default function Home() {
                     title="ToolStack"
                     pillIcon={<Book className="h-4 w-4" />}
                   >
-                    <div className="flex flex-wrap gap-9">
+                    <div className="flex flex-wrap gap-9 justify-center sm:justify-start">
                       {new Array(6).fill(0).map((_, idx) => {
                         return (
                           <CircularProgressBarWrapper
@@ -199,7 +199,7 @@ export default function Home() {
                     title="General Skills"
                     pillIcon={<Book className="h-4 w-4" />}
                   >
-                    <div className="flex flex-wrap gap-9">
+                    <div className="flex flex-wrap gap-9 sm:justify-start justify-center">
                       {new Array(6).fill(0).map((_, idx) => {
                         return (
                           <CircularProgressBarWrapper
@@ -312,6 +312,7 @@ export default function Home() {
                     pillText="TestimonialS"
                     pillIcon={<Book className="h-4 w-4" />}
                     title="Here what my client say"
+                    innerClassName="overflow-hidden"
                   >
                     <EmblaCarousel slides={SLIDES} options={{ loop: true }} />
                     <div className="py-5 px-10 rounded-full border border-gray-200 dark:text-heading text-sm font-light leading-5 text-center mt-10 mb-2">
@@ -321,7 +322,7 @@ export default function Home() {
                       </span>
                       trust us worldwide
                     </div>
-                    <div className="flex flex-row flex-wrap ">
+                    <div className="flex flex-row flex-wrap md:h-[64px] justify-between">
                       {[
                         { imgSrc: "b1" },
                         { imgSrc: "b2" },
@@ -336,7 +337,7 @@ export default function Home() {
                             src={`/brands/${_.imgSrc}.png`}
                             width={100}
                             height={100}
-                            className="object-contain w-1/2"
+                            className="object-contain w-1/2 sm:h-[64px] md:w-auto"
                             alt=";"
                           />
                         );
@@ -367,51 +368,53 @@ export default function Home() {
                     >
                       Lets get in touch!
                     </h3>
-                    {[
-                      {
-                        title: "Phone",
-                        details: "+91 828 784 2425",
-                        link: "/icons/phone.svg",
-                      },
-                      {
-                        title: "Email",
-                        details: "kapilrohilla2002@gmail.com",
-                        link: "/icons/phone.svg",
-                      },
-                      {
-                        title: "Github",
-                        details: "https://github.com/kapilrohilla",
-                        link: "/icons/phone.svg",
-                      },
-                    ].map((val, idx) => (
-                      <div
-                        className="border border-gray-300 dark:border-[rgba(255,255,255,0.06)] rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] p-5"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
-                        }}
-                        key={idx}
-                      >
-                        {/* first row */}
-                        <div className="flex flex-row gap-4 items-center mb-2">
-                          <Image
-                            src={"/icons/phone.svg"}
-                            alt={"phone icon"}
-                            width={30}
-                            height={30}
-                          />
-                          <span className="text-primary_body text-sm">
-                            {val.title}
-                          </span>
+                    <div className="flex flex-col md:flex-row flex-wrap gap-3 justify-center">
+                      {[
+                        {
+                          title: "Phone",
+                          details: "+91 828 784 2425",
+                          link: "/icons/phone.svg",
+                        },
+                        {
+                          title: "Email",
+                          details: "kapilrohilla2002@gmail.com",
+                          link: "/icons/phone.svg",
+                        },
+                        {
+                          title: "Github",
+                          details: "https://github.com/kapilrohilla",
+                          link: "/icons/phone.svg",
+                        },
+                      ].map((val, idx) => (
+                        <div
+                          className="border border-gray-300 dark:border-[rgba(255,255,255,0.06)] rounded-2xl bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] p-5 md:w-[49%] last-of-type:w-full"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(120deg,rgba(255,255,255,.08),rgba(255,255,255,0)) !important",
+                          }}
+                          key={idx}
+                        >
+                          {/* first row */}
+                          <div className="flex flex-row gap-4 items-center mb-2">
+                            <Image
+                              src={"/icons/phone.svg"}
+                              alt={"phone icon"}
+                              width={30}
+                              height={30}
+                            />
+                            <span className="text-primary_body text-sm">
+                              {val.title}
+                            </span>
+                          </div>
+                          <p className="text-primary_body tracking-wider text-sm">
+                            {val.details}
+                          </p>
                         </div>
-                        <p className="text-primary_body tracking-wider text-sm">
-                          {val.details}
-                        </p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3115.4332587423414!2d77.02054324677752!3d28.482494009192973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19002e2eb101%3A0xf4258d3b7fe80aff!2sS.S.%20Tuition%20Classes!5e0!3m2!1sen!2sin!4v1725161632653!5m2!1sen!2sin"
-                      className="aspect-square w-full mt-10 mb-5"
+                      className="aspect-square w-full mt-10 mb-5 max-h-[420px] dark:invert-[90%]"
                       loading="lazy"
                     ></iframe>
                     <h3
