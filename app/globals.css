@@ -300,6 +300,7 @@ html {
   max-width: 28rem;
   width: 100%;
   margin: auto;
+  user-select: none;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
   --slide-size: 100%;

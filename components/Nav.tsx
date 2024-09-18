@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Pills from "./Pills";
-import ProjectBox from "./Box/ProjectBox";
+import ProjectBox from "./Box/ProjectBox/ProjectBox";
 import { Button } from "./ui/button";
 import { poppins, roboto } from "@/lib/fonts";
-import BlogBox from "./Box/BlogBox";
+import BlogBox from "./Box/BlogBox/BlogBox";
 const navs = ["all", "python", "js", "node", "bash"];
 type NavP = {
   navs: string[];
