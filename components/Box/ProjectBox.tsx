@@ -6,15 +6,18 @@ import { ArrowRight } from "lucide-react";
 const ProjectBox = ({ className, imgSrc }: ProjectP) => {
   return (
     <div
-      className={`w-full border h-fit border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] ${className}`}
+      className={`w-full border h-fit border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-2xl p-3 bg-[linear-gradient(120deg,rgba(0,0,0,0),rgba(0,0,0,.04))] overflow-hidden ${className}`}
     >
-      <Image
-        src={imgSrc || "/project-photo.png"}
-        alt="project-photo"
-        width={700}
-        height={700}
-        className="rounded-2xl w-full aspect-auto object-cover"
-      />
+      <div className="h-fit w-fit overflow-hidden rounded-2xl relative">
+        i
+        <Image
+          src={imgSrc || "/project-photo.png"}
+          alt="project-photo"
+          width={700}
+          height={700}
+          className="rounded-2xl w-full aspect-auto object-cover hover:scale-110 transition-all"
+        />
+      </div>
       <div className="flex flex-col pt-5 py-3 px-2 text-[17px] gap-2 ">
         <p className="leading-7 pr-[70px] text-heading">
           {"The App Market on Google Play"}
